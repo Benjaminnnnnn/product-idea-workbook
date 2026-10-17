@@ -21,6 +21,10 @@ The most expensive PM mistake is building for a problem that isn't real.
 If a stage's evidence is weak, the skill should say **stop** or **pivot**,
 not keep filling in forms.
 
+**Status:** Steps 1–8 are done. The skills are in `skills/`, the manifests are
+in `.claude-plugin/`, `claude plugin validate` passes, and a local install
+loads all 6 skills. Next up: Step 9.
+
 ---
 
 ## Step 1 — Pick a name that won't get lost
@@ -137,9 +141,9 @@ Use the same shape for every skill:
 ```markdown
 ---
 name: market-space
-description: Use when sizing, segmenting, and positioning the market for a new
-  product idea — overall market, segmentation, target profiles, direct and
-  indirect competition, positioning map, position-to-own, market focus.
+description: Use when a product idea needs its market sized, segmented, or
+  positioned against competitors — "how big is the market?", "who are the
+  competitors?", "which segment first?"
 ---
 
 # Market Space
@@ -164,7 +168,7 @@ Fill in `template.md` in this folder.
 ```
 
 Tips:
-- The `description` is what triggers the skill, so name the concrete situations it covers.
+- The `description` is what triggers the skill. Start it with "Use when…" and list only the situations it covers, never its steps. If the description summarizes the steps, agents tend to follow that summary and skip the body.
 - Keep `SKILL.md` short and put the long template in `template.md`. The agent only loads the template when it needs it.
 - Inside a plugin, skills are called as `/product-idea-workbook:market-space`.
 
