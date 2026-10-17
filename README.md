@@ -10,6 +10,14 @@ Test a product idea before you build it. Agent skills for researching the proble
 
 ## Quick start
 
+On **claude.ai** (Pro, Max, Team, or Enterprise), install all nine skills together:
+
+1. Open **Customize → Plugins → Add → Add marketplace**.
+2. Choose **Add from a repository** and paste `https://github.com/Benjaminnnnnn/product-idea-workbook`.
+3. Find **product-idea-workbook** in **Discover** and click **Add**.
+
+[Claude's plugin guide](https://support.claude.com/en/articles/13837440-use-plugins-in-claude). Team and Enterprise admins may restrict marketplaces.
+
 In a **Claude Code** session:
 
 ```text
@@ -33,7 +41,7 @@ Use new-product-idea to evaluate a meal-planning app for US nurses working
 Coach mode pauses after each stage. Say “run on autopilot” to continue without questions. In Claude Code, you can also start with `/product-idea-workbook:new-product-idea`.
 
 <details>
-<summary>Install on claude.ai</summary>
+<summary>Manual skill upload (including Free plans)</summary>
 
 Download skill ZIPs from [Releases](https://github.com/Benjaminnnnnn/product-idea-workbook/releases). Until the first release, build them locally with Python 3:
 
