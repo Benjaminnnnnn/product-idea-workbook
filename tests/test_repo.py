@@ -75,7 +75,7 @@ class CheckerTest(unittest.TestCase):
                             "no matching entry in the appendix")
 
     def test_pending_tam_after_pricing(self):
-        text = self.example.replace("**$43.2M per year:** 899,618", "*Pending pricing; 899,618")
+        text = self.example.replace(r"**\$43.2M per year:** 899,618", "*Pending pricing; 899,618")
         self.assert_problem(text, "TAM is still pending")
 
     def test_sizing_needs_evidence(self):
@@ -91,6 +91,9 @@ class CheckerTest(unittest.TestCase):
     def test_label_lines_glued_together(self):
         self.assert_problem(self.example.replace("before building.\n\n**Next step:**", "before building.\n**Next step:**"),
                             "joins the line above")
+
+    def test_unescaped_dollar(self):
+        self.assert_problem(self.example.replace(r"\$47.99/year", "$47.99/year", 1), "dollar signs")
 
     def test_missing_subsection(self):
         self.assert_problem(self.example.replace("### 4. Context View", "### Context"),
