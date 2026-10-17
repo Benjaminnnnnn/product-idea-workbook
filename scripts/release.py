@@ -6,7 +6,7 @@
 1. Checks that the working tree is clean and CHANGELOG.md has notes under "## [Unreleased]".
 2. Sets the version in .claude-plugin/plugin.json and dates the CHANGELOG section.
 3. Runs the tests and the generated-file check, and stops if either fails.
-4. Commits "Release v0.2.0" and creates tag v0.2.0.
+4. Commits "chore(release): v0.2.0" (Conventional Commits, see AGENTS.md) and creates tag v0.2.0.
 
 Then push with: git push origin main --follow-tags
 The tag starts .github/workflows/release.yml, which publishes the GitHub Release.
@@ -66,7 +66,7 @@ def main(argv):
         fail(f"checks failed, version not changed:\n{e.stdout}{e.stderr}")
 
     run("git", "add", str(PLUGIN), str(CHANGELOG))
-    run("git", "commit", "-m", f"Release {tag}")
+    run("git", "commit", "-m", f"chore(release): {tag}")
     run("git", "tag", "-a", tag, "-m", f"Release {tag}")
     print(f"Released {tag} locally. Publish it with:\n  git push origin main --follow-tags")
 
