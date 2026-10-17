@@ -26,8 +26,10 @@ whole conversation, so the number of turns drives the cost more than anything el
 
 ## Mode
 
-- **Coach** (default): pause after each stage and ask before continuing.
-- **Autopilot**: use this when the user says "autopilot," asks you to "run straight through," or asks not to be interrupted. Don't pause or ask questions. Make reasonable assumptions, label each one **ASSUMPTION**, and still run every review and check.
+- **Autopilot** (default): use this unless the user asks for coaching. Don't pause or ask questions. Make reasonable assumptions, label each one **ASSUMPTION**, and still run every review and check.
+- **Coach** (optional): use this when the user says "coach me," requests "coach mode," or asks to approve each stage. Pause after each stage and ask before continuing.
+
+If the user switches modes, follow their latest choice for the remaining stages.
 
 ## Start
 

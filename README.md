@@ -56,21 +56,21 @@ Select your agent and all nine skills when prompted.
 
 Paste either example into your agent, replacing the idea with yours.
 
-**Coach (default)** asks for missing details and pauses after each stage for your input.
+**Autopilot (default)** runs without questions, labels assumptions, and still reviews and checks each stage.
+
+```text
+Use new-product-idea to evaluate a meal-planning app
+for nurses in the US.
+```
+
+**Coach (optional)** asks for missing details and pauses after each stage for your input.
 
 ```text
 Use new-product-idea in coach mode to evaluate a meal-planning app
 for nurses in the US.
 ```
 
-**Autopilot** runs without questions, labels assumptions, and still reviews and checks each stage.
-
-```text
-Use new-product-idea in autopilot mode to evaluate a meal-planning app
-for nurses in the US.
-```
-
-To switch from coach to autopilot, say “continue on autopilot.” In Claude Code, you can also invoke `/product-idea-workbook:new-product-idea` with your idea and mode.
+Switch anytime with “continue in coach mode” or “continue on autopilot.” In Claude Code, you can also invoke `/product-idea-workbook:new-product-idea` with your idea and optional mode.
 
 ## How it works
 

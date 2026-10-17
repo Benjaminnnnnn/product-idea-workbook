@@ -7,6 +7,7 @@ section.
 ## [Unreleased]
 
 ### Changed
+- Default to autopilot when no mode is specified; request coach mode to pause for input after each stage.
 - Separate README installation instructions by agent, link to released skill ZIPs, and add coach and autopilot examples.
 
 ## [0.1.0] - 2026-10-16
