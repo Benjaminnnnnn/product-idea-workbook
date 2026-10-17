@@ -33,12 +33,14 @@ This shows the depth and evidence standard to match. Don't copy its content or n
 
 ### 5. Competition
 **Direct**
+
 | Product | Company | Unique positioning |
 |---|---|---|
 | Mealime | Mealime Meal Plans Inc. | A free, simple recipe planner (Pro $2.99/month, now free), **shutting down on 21 Oct 2026** (Mealime, 2026) |
 | Eat This Much | Eat This Much Inc. | Automatic meal plans built to calorie and macro targets, budget, and schedule; $8.99/month or $59.99/year (Eat This Much, 2026) |
 
 **Indirect: meal kits**
+
 *Why customers treat them as a substitute:* a meal kit removes planning and shopping, which are the steps nurses skip when they're tired.
 - HelloFresh | HelloFresh SE: about $10–$13 per serving plus weekly shipping (ASSUMPTION: check current prices on hellofresh.com)
 
@@ -76,6 +78,7 @@ quadrantChart
 3. Mealime's shutdown leaves users of a low-cost planner without one.
 
 **c. Position-to-Own**
+
 A meal planner for shift-working nurses that times and preps meals around their rota, for less than takeout.
 
 ### 7. Market Focus Decision
@@ -85,6 +88,7 @@ A meal planner for shift-working nurses that times and preps meals around their 
 
 ### Stage decision
 **PROCEED**: there's a clear gap (high schedule fit at low cost), and the focus segment is large and reachable.
+
 **Riskiest assumption:** the 45 / 25 / 30 shift-pattern split.
 
 ## Appendix — References

@@ -57,4 +57,5 @@ flowchart LR
 
 ### Stage decision
 **[PROCEED | PIVOT | STOP]**: [one sentence on why]
+
 **MVP cut:** [what's in, and what's deferred]

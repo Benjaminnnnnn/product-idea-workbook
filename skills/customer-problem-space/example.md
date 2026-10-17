@@ -23,6 +23,7 @@ Eat a proper meal during and after a 12-hour shift.
 
 ### 5. Problem
 **a. Gap**
+
 2 shift days per week with a skipped main meal (3 → 1 of 4), and $10 of avoidable food spend per shift day ($15 → $5). This means there is a 2-day gap in eating properly at work and a $10 gap in daily food spend.
 
 **b. Causes**
@@ -64,6 +65,7 @@ Nurses are expected to eat proper meals to stay alert through 12-hour shifts. In
 
 ### Stage decision
 **PROCEED**: the problem is documented in published research and is worth $1.1B or more a year, even at the low end of the estimate.
+
 **Riskiest assumption:** how many shift days US nurses actually skip a main meal. Test it with a 2-week food diary from 15 nurses at 2 hospitals.
 
 ## Appendix — References

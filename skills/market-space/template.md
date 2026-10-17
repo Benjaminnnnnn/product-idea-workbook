@@ -25,11 +25,13 @@
 
 ### 5. Competition
 **Direct**
+
 | Product | Company | Unique positioning |
 |---|---|---|
 | [product] | [company] | [one sentence, as they'd say it] |
 
 **Indirect: [category]**
+
 *Why customers treat it as a substitute:* [...]
 - [Product] | [Company]
 
@@ -62,6 +64,7 @@ quadrantChart
 2. [...]
 
 **c. Position-to-Own**
+
 [One sentence: a (category) for (focus segment) that (key difference).]
 
 ### 7. Market Focus Decision

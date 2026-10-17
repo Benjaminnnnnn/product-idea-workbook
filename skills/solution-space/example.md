@@ -88,6 +88,7 @@ flowchart LR
 
 ### Stage decision
 **PROCEED**: the MVP is buildable by a small team and delivers the position to own.
+
 **MVP cut:** FR-1 to FR-5 are in; FR-6 to FR-9 come after launch.
 
 ## Appendix — References

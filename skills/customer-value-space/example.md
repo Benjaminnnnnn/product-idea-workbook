@@ -58,6 +58,7 @@ This shows the depth and evidence standard to match. Don't copy its content or n
 
 ### Stage decision
 **PROCEED**: the nurse comes out clearly ahead at a price that supports a small team.
+
 **Riskiest assumption:** willingness to pay $47.99/year. Test it with a fake-door pricing page shown to 200 nurses.
 
 ## Appendix — References
