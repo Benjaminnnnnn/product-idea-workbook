@@ -31,7 +31,7 @@ Then go back and fill in **TAM** in section 2.2: focus-segment actors × annual 
 
 ## Evidence rules
 
-Get every number through the `market-research` skill. If it isn't available, follow its rules yourself: open each source and find the number on it, cite it inline as (Publisher, Year), add the full entry to the workbook's `Appendix — References`, and label anything you can't check as **ASSUMPTION**. Record competitor prices with the date you checked them.
+Get every number through the `market-research` skill. If it isn't available, follow its rules yourself: research at most 8 numbers, with all the searches in one turn, open each source and find the number on it, cite it inline as (Publisher, Year), add the full entry to the workbook's `Appendix — References`, and label anything you can't check as **ASSUMPTION**. Record competitor prices with the date you checked them.
 
 ## Quality gate
 

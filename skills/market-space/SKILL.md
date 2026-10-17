@@ -33,7 +33,7 @@ Draw the maps as Mermaid `quadrantChart` blocks so they render on GitHub. Point 
 
 ## Evidence rules
 
-Get every number through the `market-research` skill. If it isn't available, follow its rules yourself: open each source and find the number on it, cite it inline as (Publisher, Year), add the full entry to the workbook's `Appendix — References`, and label anything you can't check as **ASSUMPTION**. Never invent a source.
+Get every number through the `market-research` skill. If it isn't available, follow its rules yourself: research at most 8 numbers, with all the searches in one turn, open each source and find the number on it, cite it inline as (Publisher, Year), add the full entry to the workbook's `Appendix — References`, and label anything you can't check as **ASSUMPTION**. Never invent a source.
 
 ## Quality gate
 

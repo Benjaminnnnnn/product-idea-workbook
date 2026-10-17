@@ -33,7 +33,7 @@ Fill in `template.md` (in this skill's folder) in order. `example.md` shows a fi
 
 ## Evidence rules
 
-- Get every number through the `market-research` skill. If it isn't available, follow its rules yourself: open each source and find the number on it, cite it inline as (Publisher, Year), add the full entry to the workbook's `Appendix — References`, and label anything you can't check as **ASSUMPTION**.
+- Get every number through the `market-research` skill. If it isn't available, follow its rules yourself: research at most 8 numbers, with all the searches in one turn, open each source and find the number on it, cite it inline as (Publisher, Year), add the full entry to the workbook's `Appendix — References`, and label anything you can't check as **ASSUMPTION**.
 - Never invent a source, a statistic, or a quote. If a number has no source someone can check, label it **ASSUMPTION** and say how to verify it.
 - Prefer data from the last 3 years, and flag anything older.
 

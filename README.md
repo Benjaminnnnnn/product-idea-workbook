@@ -57,7 +57,7 @@ Your agent follows four stages: problem → market → solution → value. It re
 
 You get `workbooks/<product-name>.md` with the research, sources, biggest risk, and next step. The included checker catches missing sections and references; customer validation still needs real people.
 
-Use `market-space` on its own to size a market or compare competitors. [Browse all eight skills →](skills/)
+Use `market-space` on its own to size a market or compare competitors. [Browse all nine skills →](skills/)
 
 ## See the result
 

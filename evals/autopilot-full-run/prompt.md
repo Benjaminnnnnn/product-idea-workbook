@@ -1,8 +1,8 @@
 ---
-description: A full autopilot run should produce a complete, checked workbook with a decision and cited sources. Expensive; run with --tag full.
+description: A full autopilot run should produce a complete, checked workbook with a decision and cited sources, within the 60-turn budget. Expensive; run with --tag full.
 tags: [full]
 runs: 1
-max_turns: 200
+max_turns: 60
 timeout_seconds: 3600
 allowed_tools: [Read, Glob, Grep, Skill, TodoWrite]
 ---
