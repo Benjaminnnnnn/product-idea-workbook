@@ -10,6 +10,9 @@ building on the one before. Every stage ends with a PROCEED / PIVOT / STOP
 decision. Stopping a weak idea early is a good result, because it saves the
 time and money of building it.
 
+If the user has several ideas, or wants a quick check before the full
+workbook, use `idea-screen` first and then run this on the idea that advances.
+
 ## Mode
 
 - **Coach** (default): pause after each stage and ask before continuing.

@@ -12,3 +12,4 @@ section.
 - A worked example for a fictional product (`examples/shiftplate.md`), shown in each skill's `example.md`.
 - `check_workbook.py`, a standard-library checker that catches missing sections, leftover placeholders, missing decisions, and citations without references.
 - A Claude Code plugin marketplace, `npx skills` support, and per-skill zips for claude.ai.
+- `idea-screen`: a cheap pass that scores 1–5 ideas on problem, market, gap, and willingness to pay, so the full workbook runs only on the winner.

@@ -87,6 +87,7 @@ product-idea-workbook/
 │   ├── customer-value-space/     # same
 │   ├── product-idea-brief/       # same
 │   ├── market-research/          # SKILL.md: sourced numbers, URL for each one
+│   ├── idea-screen/              # SKILL.md: cheap 1–5 idea comparison before a full run
 │   └── stage-review/             # SKILL.md: skeptical review before each decision
 ├── examples/shiftplate.md        # the worked example, the single source for every example.md
 ├── evals/                        # claude plugin eval cases (--tag trigger | full)
