@@ -1,38 +1,41 @@
 # Product Idea Workbook
 
-**Find out whether your product idea is worth building—with evidence, competition, and a decision at every stage.**
+Test a product idea before you build it. Agent skills for researching the problem, finding a market, and deciding whether to proceed.
 
-[![GitHub stars](https://img.shields.io/github/stars/Benjaminnnnnn/product-idea-workbook?style=flat)](https://github.com/Benjaminnnnnn/product-idea-workbook/stargazers)
-[![MIT license](https://img.shields.io/github/license/Benjaminnnnnn/product-idea-workbook)](LICENSE)
-[![Plugin version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FBenjaminnnnnn%2Fproduct-idea-workbook%2Fmain%2F.claude-plugin%2Fplugin.json&query=%24.version&prefix=v&label=version)](.claude-plugin/plugin.json)
-[![Claude Code plugin](https://img.shields.io/badge/Claude_Code-plugin-D97757)](#install-in-30-seconds)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-plugin-d97757)](#quick-start)
+[![Agent Skills](https://img.shields.io/badge/Agent_Skills-compatible-287568)](https://github.com/vercel-labs/skills)
+[![MIT](https://img.shields.io/badge/license-MIT-536174)](LICENSE)
 
-## Why this exists
+[![Five steps from idea to decision: problem, market, solution, value, and a one-page brief. Review the evidence at each stage to proceed, pivot, or stop.](docs/workflow.svg)](examples/shiftplate.md)
 
-Generic AI product ideas sound convincing while skipping the hard parts: evidence that the problem is real, sizing that adds up, and the alternatives customers already use. These agent skills make those checks part of the workflow. Every number needs a source or an **ASSUMPTION** label; every stage ends with **PROCEED / PIVOT / STOP**. Stopping a weak idea is a useful outcome.
+## Quick start
 
-## Install in 30 seconds
-
-**Claude Code** — run inside a Claude Code session:
+In a **Claude Code** session:
 
 ```text
 /plugin marketplace add Benjaminnnnnn/product-idea-workbook
 /plugin install product-idea-workbook@product-idea
 ```
 
-Follow the install prompts and reload if requested. See [Claude Code's plugin installation guide](https://code.claude.com/docs/en/discover-plugins).
-
-**Codex, Cursor, Copilot, Gemini CLI, and other supported agents** — run in your terminal (requires Node.js and npm):
+For **Codex, Cursor, Copilot, Gemini CLI**, or another supported agent, run this in your terminal (requires Node.js and npm). Select your agent and all skills:
 
 ```bash
 npx skills add Benjaminnnnnn/product-idea-workbook
 ```
 
-Select your agent and all eight skills for the full workflow. You can also install an individual stage. See the [skills installer documentation](https://github.com/vercel-labs/skills).
+Then paste this into your agent:
 
-**claude.ai** — download the individual skill ZIPs from the [latest GitHub Release](https://github.com/Benjaminnnnnn/product-idea-workbook/releases/latest). Enable code execution, then upload each ZIP under **Customize → Skills → + → Create skill → Upload a skill** and toggle it on. Upload all eight for the full pipeline. See [Claude's skill setup guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+```text
+Use new-product-idea to evaluate a meal-planning app for US nurses working
+12-hour shifts. Coach me through it, starting with whether the problem is real.
+```
 
-No release has been published yet. Until the first release, build the same ZIPs locally with Python 3:
+Coach mode pauses after each stage. Say “run on autopilot” to continue without questions. In Claude Code, you can also start with `/product-idea-workbook:new-product-idea`.
+
+<details>
+<summary>Install on claude.ai</summary>
+
+Download skill ZIPs from [Releases](https://github.com/Benjaminnnnnn/product-idea-workbook/releases). Until the first release, build them locally with Python 3:
 
 ```bash
 git clone https://github.com/Benjaminnnnnn/product-idea-workbook.git
@@ -40,85 +43,33 @@ cd product-idea-workbook
 python3 scripts/build.py
 ```
 
-Upload the files in `dist/`, one ZIP per skill.
+Enable code execution, then upload each ZIP from `dist/` under **Customize → Skills → + → Create skill → Upload a skill**. Enable all skills for the full workflow. [Claude's setup guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
 
-## Try it now
+</details>
 
-Paste one of these prompts into your agent after installing. In Claude Code, you can also invoke a skill directly with `/product-idea-workbook:new-product-idea` or `/product-idea-workbook:market-space`.
+## How it works
 
-**“I have an idea.”**
+Your agent follows four stages: problem → market → solution → value. It reviews the evidence after each one, then writes a one-page brief with a GO / NO-GO decision.
 
-```text
-Use new-product-idea to evaluate a meal-planning app for US nurses working
-12-hour shifts. Coach me through it, starting with whether the problem is real.
-```
+- **Evidence:** research numbers with web access; label anything unverified `ASSUMPTION`.
+- **Competition:** compare direct competitors, indirect alternatives, and doing nothing.
+- **Decisions:** proceed, pivot, or stop at each stage. A weak idea can end early.
 
-**“I have a competitor to beat.”**
+You get `workbooks/<product-name>.md` with the research, sources, biggest risk, and next step. The included checker catches missing sections and references; customer validation still needs real people.
 
-```text
-Use new-product-idea to evaluate an alternative to Calendly for independent
-music teachers in the US. Run on autopilot. Test the customer problem before
-proposing features, compare direct and indirect alternatives, and label assumptions.
-```
+Use `market-space` on its own to size a market or compare competitors. [Browse all nine skills →](skills/)
 
-**“I need to size a market.”**
+## See the result
 
-```text
-Use market-space to size the US market for scheduling software for independent
-music teachers. The customer is a solo teacher managing recurring lessons;
-the job is to keep the weekly lesson schedule full; the problem hypothesis
-is that cancellations leave unpaid gaps. Count actors, cite sources, compare
-alternatives, and pick a first segment. Leave revenue TAM pending until pricing.
-```
-
-**Coach** is the default and pauses after each stage. **Autopilot** runs without questions and labels missing evidence as assumptions. The full workflow writes `workbooks/<product-name>.md`, with a one-page brief, four stage sections, sources, and a next step. Enable web research for sourced numbers; unverified numbers must stay labeled assumptions.
-
-## See an example
-
-Read the [finished ShiftPlate workbook](examples/shiftplate.md) or browse [examples/](examples/). ShiftPlate is a fictional meal planner for shift-working nurses. It shows the expected depth, source trail, stage decisions, and assumptions still needing customer validation.
-
-![Local checker demo: inspect the ShiftPlate example, run the complete workbook check, and read its decision and next step](docs/checker-demo.gif)
-
-*A local checker run on the finished example, not a live AI generation. The same result is available as text by running:*
-
-```bash
-python3 skills/new-product-idea/scripts/check_workbook.py examples/shiftplate.md --complete
-```
-
-The checker catches structural problems such as missing sections, placeholders, and citations without references. An `OK` result does not establish customer demand or verify the truth of a source.
-
-## The pipeline
-
-```text
-Problem Space ──▶ Market Space ──▶ Solution Space ──▶ Value Space ──▶ Idea Brief
- (is it real?)    (who, how many,    (what we build)    (why they'd     (1-page
-                   who else wins?)                       switch + pay)   summary)
-```
-
-| Skill | What it does |
-|---|---|
-| [new-product-idea](skills/new-product-idea/SKILL.md) | Runs the full workflow in coach or autopilot mode and checks the workbook. |
-| [customer-problem-space](skills/customer-problem-space/SKILL.md) | Defines the customer, job, measurable gap, root causes, and problem size. |
-| [market-space](skills/market-space/SKILL.md) | Counts customers, chooses a segment, maps competitors, and finds a position to own. |
-| [solution-space](skills/solution-space/SKILL.md) | Turns the problem and positioning into a concept, user flow, and requirements. |
-| [customer-value-space](skills/customer-value-space/SKILL.md) | Compares benefits with switching costs, sets pricing, and fills in revenue TAM. |
-| [product-idea-brief](skills/product-idea-brief/SKILL.md) | Summarizes the evidence, biggest risk, and GO / NO-GO decision on one page. |
-| [market-research](skills/market-research/SKILL.md) | Finds and opens sources for numbers, or marks them as assumptions. |
-| [stage-review](skills/stage-review/SKILL.md) | Challenges evidence, consistency, and traceability before a stage decision. |
+[Read the ShiftPlate workbook →](examples/shiftplate.md), a fictional meal planner for shift-working nurses. It includes customer journeys, positioning maps, pricing, and assumptions to test. Its next step is a two-week food diary with 15 nurses.
 
 ## Contributing
 
-Found a missing check or a vague output? [Open an issue](https://github.com/Benjaminnnnnn/product-idea-workbook/issues) with a small, non-confidential example, or send a focused PR. Skill requests are welcome too.
-
-Read [AGENTS.md](AGENTS.md) for commit and release conventions. Edit the worked example in `examples/shiftplate.md`, then run `python3 scripts/build.py` to regenerate skill examples; never edit `skills/*/example.md` directly. Before committing, run:
+[Report a vague output or missing check](https://github.com/Benjaminnnnnn/product-idea-workbook/issues), or send a focused PR. Follow [AGENTS.md](AGENTS.md) and run:
 
 ```bash
 python3 -m unittest discover -s tests
 python3 scripts/build.py --check
 ```
 
-See [steps.md](steps.md) for the roadmap and [CHANGELOG.md](CHANGELOG.md) for changes. If this helps you make a better product decision, star the repo so you can find it again.
-
-## License
-
-[MIT](LICENSE) © 2026 Benjamin Zhuang.
+[MIT license](LICENSE) · [Changelog](CHANGELOG.md)

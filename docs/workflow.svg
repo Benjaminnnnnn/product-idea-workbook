@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title description">
+  <title id="title">From product idea to a decision</title>
+  <desc id="description">Research the problem, market, solution, and value. Review the evidence at each stage to proceed, pivot, or stop. Finish with a one-page brief, biggest risk, and next step.</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#deddd3"/>
+    </pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1 1 5 4 1 7" fill="none" stroke="#687b71" stroke-width="1.5"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="440" rx="20" fill="#f6f5ee"/>
+  <rect width="1200" height="440" rx="20" fill="url(#grid)"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="44" y="45" font-size="13" letter-spacing="2.5" font-weight="700" fill="#496457">PRODUCT IDEA WORKBOOK</text>
+    <text x="44" y="98" font-size="40" font-weight="700" fill="#203e34">Should you build it?</text>
+    <text x="44" y="130" font-size="18" fill="#52635b">Work through the evidence. Leave with a decision.</text>
+
+    <g fill="none" stroke="#687b71" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M236 241 H264"/><path d="M460 241 H488"/>
+      <path d="M684 241 H712"/><path d="M908 241 H936"/>
+    </g>
+
+    <g stroke="#cdd5cc" stroke-width="1.5" fill="#fffef9">
+      <rect x="44" y="171" width="192" height="140" rx="14"/>
+      <rect x="268" y="171" width="192" height="140" rx="14"/>
+      <rect x="492" y="171" width="192" height="140" rx="14"/>
+      <rect x="716" y="171" width="192" height="140" rx="14"/>
+    </g>
+    <rect x="940" y="171" width="216" height="140" rx="14" fill="#234d3e"/>
+
+    <g font-size="13" font-weight="700" fill="#6a7a70" letter-spacing="1">
+      <text x="64" y="201">01 / PROBLEM</text><text x="288" y="201">02 / MARKET</text>
+      <text x="512" y="201">03 / SOLUTION</text><text x="736" y="201">04 / VALUE</text>
+      <text x="960" y="201" fill="#b6d5bf">05 / BRIEF</text>
+    </g>
+    <g font-size="23" font-weight="700" fill="#203e34">
+      <text x="64" y="242">Is it real?</text><text x="288" y="242">Who needs it?</text>
+      <text x="512" y="242">What to build?</text><text x="736" y="242">Why pay?</text>
+      <text x="960" y="242" fill="#fffef9">Go / no-go</text>
+    </g>
+    <g font-size="15" fill="#52635b">
+      <text x="64" y="280">Customer + pain</text><text x="288" y="280">Size + competition</text>
+      <text x="512" y="280">Concept + scope</text><text x="736" y="280">Benefits + price</text>
+      <text x="960" y="280" fill="#c4d9ca">Risk + next step</text>
+    </g>
+
+    <path d="M44 331 V344 H908 V331" fill="none" stroke="#9eafa2" stroke-width="1.5"/>
+    <text x="44" y="394" font-size="16" fill="#52635b">At every stage</text>
+    <rect x="183" y="369" width="117" height="38" rx="19" fill="#e0eddf"/>
+    <text x="241.5" y="394" text-anchor="middle" font-size="13" font-weight="700" fill="#2f613d">PROCEED</text>
+    <rect x="310" y="369" width="91" height="38" rx="19" fill="#f3e6c6"/>
+    <text x="355.5" y="394" text-anchor="middle" font-size="13" font-weight="700" fill="#77561e">PIVOT</text>
+    <rect x="411" y="369" width="85" height="38" rx="19" fill="#f1ddd6"/>
+    <text x="453.5" y="394" text-anchor="middle" font-size="13" font-weight="700" fill="#88442f">STOP</text>
+    <text x="1156" y="394" text-anchor="end" font-size="16" fill="#52635b">One workbook. Sources included.</text>
+  </g>
+</svg>
