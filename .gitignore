@@ -3,3 +3,5 @@ workbooks/
 dist/
 evals/results/
 __pycache__/
+.claude/worktrees/
+.claude/settings.local.json
