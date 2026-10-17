@@ -13,3 +13,4 @@ section.
 - `check_workbook.py`, a standard-library checker that catches missing sections, leftover placeholders, missing decisions, and citations without references.
 - A Claude Code plugin marketplace, `npx skills` support, and per-skill zips for claude.ai.
 - `idea-screen`: a cheap pass that scores 1–5 ideas on problem, market, gap, and willingness to pay, so the full workbook runs only on the winner.
+- A research and turn budget: at most 8 researched numbers per stage, searches batched in one turn, and no reading PDFs or saved fetch files. The full-run eval now fails above 60 turns.

@@ -13,6 +13,17 @@ time and money of building it.
 If the user has several ideas, or wants a quick check before the full
 workbook, use `idea-screen` first and then run this on the idea that advances.
 
+## Budget
+
+A full autopilot run should take about **60 turns**. Each turn re-sends the
+whole conversation, so the number of turns drives the cost more than anything else.
+
+- Load each stage's skill when you reach that stage, not before.
+- Run the checker, but don't read its source. Its messages say what to fix.
+- Put independent tool calls (searches, page fetches) together in one turn.
+- Write each section with one Write or Edit, not one edit per field.
+- If `workbooks/` has an idea screen for this idea, reuse its cited numbers and references instead of searching for them again.
+
 ## Mode
 
 - **Coach** (default): pause after each stage and ask before continuing.

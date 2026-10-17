@@ -53,3 +53,4 @@ decision.
 - Quote the exact line for every finding. "Could be stronger" isn't a finding.
 - Don't include a praise section.
 - If you find nothing, list what you checked, so it's clear the review was real.
+- Don't start new research during a review. If a claim has no source, the fix is to label it ASSUMPTION or remove it.
