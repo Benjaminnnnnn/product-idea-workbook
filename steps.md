@@ -1,159 +1,176 @@
-# Steps: Turn the Product Idea Workbook into a Reusable Skill Repo
+# Steps: Turn the Product Idea Workbook into an Installable Skill Repo
 
-Goal: a repo of Claude skills that walks you (or anyone) through the workbook
-for any new competitive product, and outputs a finished workbook.
+**Goal:** a public repo of agent skills that walks anyone through the Product
+Idea Workbook for a new competitive product. People can install it with one
+command, see a finished example right away, and want to star it.
 
-The workbook is really one pipeline in four stages. Each stage takes the
-previous stage's output as input:
+**The workbook is used as structure only.** Its sections become the skill
+procedures and templates. None of the original workbook's product content
+goes into the repo, and neither does the `.docx`.
+
+The workbook is one pipeline in four stages plus a summary. Each stage feeds
+the next and ends with a gate:
 
 ```
 Problem Space ──▶ Market Space ──▶ Solution Space ──▶ Value Space ──▶ Idea Brief
- (is it real?)    (who pays,        (what we build)    (why they'd     (1-page
-                   who else wins?)                      switch + pay)   summary)
+ (is it real?)    (who, how many,    (what we build)    (why they'd     (1-page
+                   who else wins?)                       switch + pay)   summary)
 ```
 
-Treat each stage as a **gate**, not just a form. The most expensive PM mistake
-is solving a problem nobody has. If a stage's evidence is weak, stop there.
+The most expensive PM mistake is building for a problem that isn't real.
+If a stage's evidence is weak, the skill should say **stop** or **pivot**,
+not keep filling in forms.
 
 ---
 
-## Step 1 — Set up the repo
+## Step 1 — Pick a name that won't get lost
+
+GitHub already has popular repos called `product-manager-skills`
+(e.g. deanpeters/Product-Manager-Skills, ~7k stars). Choose a name that says
+what's different about yours. This guide uses:
+
+- Repo: `product-idea-workbook`
+- Plugin: `product-idea-workbook`
+- Marketplace: `product-idea`
+
+Swap in your own names everywhere below if you pick different ones.
+
+## Step 2 — Keep the `.docx` out of the repo
+
+The template's section structure is already written out in Step 4, so the
+`.docx` isn't needed in the repo.
 
 ```bash
-cd product-manager-skills
-git add "Product Idea Workbook template.docx" && git commit -m "Add source workbook"
+mv "Product Idea Workbook template.docx" ~/Documents/   # keep it outside the repo
+echo "*.docx" >> .gitignore                             # so it never gets committed
 ```
 
-Target layout (one folder per skill, flat, nothing extra):
+## Step 3 — Create the layout
+
+This one layout works for **Claude Code plugins** *and* the cross-agent
+`npx skills` installer (Codex, Cursor, Copilot, Gemini, and 40+ more). Both
+look for `skills/<name>/SKILL.md`.
 
 ```
-product-manager-skills/
-├── README.md                     # what this is + how to install
-├── steps.md                      # this file
-├── reference/
-│   └── investpilot-example.md    # the filled workbook, converted to markdown
-└── skills/
-    ├── product-idea-workbook/    # orchestrator: runs stages 1→5 in order
-    │   └── SKILL.md
-    ├── customer-problem-space/
-    │   ├── SKILL.md
-    │   └── template.md
-    ├── market-space/
-    │   ├── SKILL.md
-    │   └── template.md
-    ├── solution-space/
-    │   ├── SKILL.md
-    │   └── template.md
-    ├── customer-value-space/
-    │   ├── SKILL.md
-    │   └── template.md
-    └── product-idea-brief/
-        ├── SKILL.md
-        └── template.md
+product-idea-workbook/
+├── .claude-plugin/
+│   ├── marketplace.json          # makes the repo installable via /plugin
+│   └── plugin.json
+├── skills/
+│   ├── new-product-idea/         # orchestrator: runs stages 1→5 in order
+│   │   └── SKILL.md
+│   ├── customer-problem-space/
+│   │   ├── SKILL.md
+│   │   └── template.md
+│   ├── market-space/
+│   │   ├── SKILL.md
+│   │   └── template.md
+│   ├── solution-space/
+│   │   ├── SKILL.md
+│   │   └── template.md
+│   ├── customer-value-space/
+│   │   ├── SKILL.md
+│   │   └── template.md
+│   └── product-idea-brief/
+│       ├── SKILL.md
+│       └── template.md
+├── examples/                     # finished workbooks made BY the skills (Step 8)
+├── README.md
+├── LICENSE
+└── .gitignore
 ```
 
-## Step 2 — Convert the workbook to markdown (your worked example)
+## Step 4 — Write each stage's procedure (from the workbook sections)
 
-```bash
-mkdir -p reference
-pandoc "Product Idea Workbook template.docx" -t gfm \
-  --extract-media=reference/media -o reference/investpilot-example.md
-```
+Each `SKILL.md` lists its sub-steps in order, with a one-line **"good looks
+like"** for each one. The sub-steps below come straight from the workbook's
+sections.
 
-This is the "gold standard" example every skill points to. Models copy
-examples far better than they follow abstract instructions.
-
-## Step 3 — Write down the procedure for each stage
-
-Each skill's `SKILL.md` lists the workbook's sub-steps in order, with **what
-"good" looks like** for each one. Here's the procedure taken from the workbook:
-
-### Skill 1: `customer-problem-space`
-1. **Fertile land**: the product area or trend you're entering.
-2. **Customer**: one specific actor (e.g. "individual beginner investor").
-3. **Job to be done**: a verb plus an object ("build a diversified portfolio").
-4. **Outcomes**: for each one, list *actual → desired → how it's measured*. Every outcome must be a number.
+### `customer-problem-space`
+1. **Fertile land**: the product area or trend being entered.
+2. **Customer**: one specific actor, not "everyone."
+3. **Job to be done**: a verb plus an object.
+4. **Outcomes**: for each one, list *actual → desired → measurement method*. Every outcome must be a number.
 5. **Problem**: (a) the gap between actual and desired, quantified; (b) its root causes.
 6. **Customer journey map**: the stages, what the customer does at each one, and the pain points.
 7. **Use cases**: short names, each tagged with who it's for.
-8. **Problem sizing**: per instance → per actor per year → total per year. Show the math and the source for every assumption.
+8. **Problem sizing**: per instance → per actor per year → total per year. Show the math and a source for every assumption.
 9. **Problem category**: a 2–4 word label.
 10. **Problem statement**: one paragraph covering the expectation, the reality, the gap, its size, and the need, all cited.
 
-### Skill 2: `market-space`
+### `market-space`
 1. **Overall market**: the actor population, with the estimate's reasoning and sources.
-2. **TAM**: fill this in after pricing (Skill 4) is known.
-3. **Segmentation**: 2–3 variables, each with 3 values.
+2. **TAM**: filled in after pricing is known (see `customer-value-space`).
+3. **Market segmentation**: 2–3 variables, each with about 3 values.
 4. **Target market profiles**: name, definition, and actor count for each segment, plus why this segmentation works (it must be measurable, accessible, substantial, distinct, and predictive).
-5. **Competition**: direct competitors (product | company → their unique positioning) plus at least one **indirect category** (e.g. high-yield savings accounts). Most people forget the indirect one, and it's often the competitor that actually wins.
-6. **Positioning analysis**: a current-state 2×2 map, a future-state map, the gaps you found, and a one-line **position to own**.
-7. **Market focus decision**: the segment(s) you'll serve first and why.
+5. **Competition**: direct competitors (product | company → their unique positioning) plus at least one **indirect category**, including "do nothing." The indirect alternative is the one most often missed, and often the one that actually wins.
+6. **Positioning analysis**: a current-state map, a future-state map, the gaps you found, and a one-line **position to own**.
+7. **Market focus decision**: the segment(s) to serve first and why.
 
-### Skill 3: `solution-space`
-1. **Product concept outline**: name, purpose, category, main attributes (taken from the positioning gaps), software and physical deliverables, input/output methods, infrastructure.
-2. **User views**: a numbered user flow from launch to the core value moment, plus wireframes.
-3. **Functional requirements**: what the system must do, traced back to the use cases.
-4. **Context view**: the system boundary, its users, and the external systems and integrations it touches.
-5. **Non-functional requirements**: performance, security, compliance, availability, accessibility.
+### `solution-space`
+1. **Product concept outline**: name, purpose, category, main attributes (taken from the positioning gaps), software and physical deliverables, input/output methods, production infrastructure.
+2. **User views**: a numbered flow from first launch to the core value moment, plus wireframes or screen descriptions.
+3. **Functional requirements**: what the system must do.
+4. **Context view**: the system boundary, its users, and the external systems it connects to.
+5. **Non-functional requirements**: performance, security, privacy and compliance, availability, accessibility.
 
-> Steps 3–5 are empty in the template, so write them from standard PM practice.
-> Rule of thumb: every functional requirement should trace back to a use case
-> (Skill 1, step 7) or a positioning gap (Skill 2, step 6). If it doesn't, cut it.
-
-### Skill 4: `customer-value-space`
-1. **Features → benefits**: for each feature, which outcome from Skill 1 it improves.
-2. **Value proposition strategy**: e.g. better / cheaper / easier / new, compared against the competitors named in Skill 2.
-3. **Pricing model**: subscription, freemium, AUM %, usage-based, etc., and why.
+### `customer-value-space`
+1. **Product features and benefits**: for each feature, which outcome it improves.
+2. **Customer value proposition strategy**: better / cheaper / easier / new, compared with the named competitors.
+3. **Pricing model**: subscription, freemium, usage-based, one-time, etc., and why.
 4. **Customer cost items**: money, time, switching cost, learning curve, risk.
-5. **Value proposition evaluation**: does the benefit clearly beat the cost, compared with the competitors *and* the indirect alternative?
+5. **Customer value proposition evaluation**: does the benefit clearly beat the cost, compared with the competitors *and* the indirect alternative? Then go back and fill in TAM: focus-segment actors × annual price.
 
-> This section is also empty in the template. After pricing is set, go back
-> and fill in TAM (Skill 2, step 2) = actors in the focus segment × annual price.
+### `product-idea-brief`
+Written last, on one page: problem, customer, size, position to own,
+solution, value proposition, price, biggest risk, and the decision.
 
-### Skill 5: `product-idea-brief`
-A one-page summary written last: problem, who, size, position to own,
-solution, value proposition, price, and the biggest risk.
+### `new-product-idea` (orchestrator)
+1. Asks for the product idea (and the target customer, if the user knows it).
+2. Runs the four stage skills in order, showing each gate's result.
+3. Writes the finished workbook to `workbooks/<product-name>.md`.
 
-### Skill 0: `product-idea-workbook` (orchestrator)
-Runs Skills 1→5 in order, stops at each gate, and writes the finished
-workbook to `workbooks/<product-name>.md`.
+## Step 5 — Write each `SKILL.md`
 
-## Step 4 — Write each `SKILL.md`
-
-Use this same shape for every skill:
+Use the same shape for every skill:
 
 ```markdown
 ---
-name: customer-problem-space
-description: Use when defining or validating the customer problem for a new
-  product idea — JTBD, outcomes, problem gap, root causes, journey map, use
-  cases, problem sizing, problem statement.
+name: market-space
+description: Use when sizing, segmenting, and positioning the market for a new
+  product idea — overall market, segmentation, target profiles, direct and
+  indirect competition, positioning map, position-to-own, market focus.
 ---
 
-# Customer Problem Space
+# Market Space
 
-## Inputs
-- Product area or idea (ask if missing)
+## Input
+- The output of customer-problem-space (ask for it if missing)
 
 ## Procedure
-1. Fertile land — ...
-2. ...  (the sub-steps from Step 3, each with a "good looks like" line)
+1. Overall market — ... Good looks like: ...
+2. ...
 
-## Quality gate (do not finish until all pass)
-- [ ] Every outcome has actual, desired, and a measurement formula
-- [ ] Sizing math is shown and every number has a cited source
-- [ ] Problem statement numbers match the sizing section
+## Quality gate (all must pass before finishing)
+- [ ] Every number has a source or is marked ASSUMPTION
+- [ ] At least one indirect competitor, including "do nothing"
+- [ ] Position to own fits in one sentence and fills a gap on the map
+
+## Decision
+End with: PROCEED / PIVOT / STOP, plus one sentence on why.
 
 ## Output
-Fill `template.md`. See `../../reference/investpilot-example.md` section 1.
+Fill in `template.md` in this folder.
 ```
 
-Keep the `description` specific. It's what triggers the skill.
+Tips:
+- The `description` is what triggers the skill, so name the concrete situations it covers.
+- Keep `SKILL.md` short and put the long template in `template.md`. The agent only loads the template when it needs it.
+- Inside a plugin, skills are called as `/product-idea-workbook:market-space`.
 
-## Step 5 — Write each `template.md`
+## Step 6 — Write each `template.md`
 
-Copy the headings from the workbook section and replace the InvestPilot
-content with `[placeholders]`, plus one hint line per field. Example:
+Use the workbook's headings, with `[placeholders]` and one hint per field:
 
 ```markdown
 ## 4. Outcomes
@@ -162,52 +179,118 @@ content with `[placeholders]`, plus one hint line per field. Example:
 | [current metric + number] | [target number] | [formula] |
 ```
 
-## Step 6 — Add the gates a senior PM would enforce
+## Step 7 — Add the checks a senior PM would make
 
-These are the checks that catch weak product ideas. Put them in each skill's
-quality gate:
+Add these to the quality gates. They're what make the output stand out from
+generic AI writing:
 
-- **Evidence over opinion**: every market number is cited and the date is recent. Mark guesses as `ASSUMPTION`.
-- **Internal consistency**: the same number must match everywhere it appears. The InvestPilot example breaks this twice: the statement says $4–8B while the sizing says $5–10B, and the segment thresholds are $500–10k in one place and <$2k in another. Have the skill check for this kind of mismatch automatically.
-- **Traceability**: each outcome links to a cause, each cause to a feature, each feature to a benefit, and each benefit to pricing.
-- **Indirect competition**: at least one non-obvious alternative, including "do nothing."
-- **Kill criteria**: each stage ends with "proceed / pivot / stop" and one sentence on why.
+- **Evidence over opinion**: every market number is cited with a recent date, or marked `ASSUMPTION`.
+- **Internal consistency**: a number that appears in more than one place must match everywhere (sizing vs. statement, segment definitions vs. profiles). Problem sizing and segment definitions are where mismatches usually creep in.
+- **Traceability**: each outcome links to a cause, each cause to a feature, each feature to a benefit, and each benefit to pricing. Cut any requirement that doesn't trace back to a use case or a positioning gap.
+- **Indirect competition**: at least one non-obvious alternative.
+- **Kill criteria**: every stage ends with proceed / pivot / stop.
 
-## Step 7 — Test it on a new product
+## Step 8 — Make the plugin installable
 
-In Claude Code, run the orchestrator on an idea that has nothing to do with
-investing:
+`.claude-plugin/plugin.json`:
 
+```json
+{
+  "name": "product-idea-workbook",
+  "description": "Turn a product idea into a validated, competitive product concept: problem, market, solution, value.",
+  "version": "0.1.0",
+  "author": { "name": "Benjamin Zhuang" },
+  "repository": "https://github.com/<you>/product-idea-workbook",
+  "license": "MIT",
+  "keywords": ["product-management", "product-discovery", "jtbd", "positioning", "skills"]
+}
 ```
-Use product-idea-workbook for: a meal-planning app for shift-working nurses
+
+`.claude-plugin/marketplace.json` (the whole repo is the plugin, so its
+`source` is `"./"`):
+
+```json
+{
+  "name": "product-idea",
+  "owner": { "name": "Benjamin Zhuang" },
+  "plugins": [
+    {
+      "name": "product-idea-workbook",
+      "source": "./",
+      "description": "Turn a product idea into a validated, competitive product concept."
+    }
+  ]
+}
 ```
 
-Read the output against the gates from Step 6. Wherever it was vague or
-skipped something, tighten that skill's procedure or "good looks like" line.
-Run at least 2–3 different products before you trust it.
-
-## Step 8 — Install the skills
-
-Local use (all projects):
+Check the files and test the install locally before you push:
 
 ```bash
-mkdir -p ~/.claude/skills
-for d in skills/*/; do ln -s "$PWD/$d" ~/.claude/skills/; done
+claude plugin validate .                  # last line should be: ✔ Validation passed
+claude plugin marketplace add ./
+claude plugin install product-idea-workbook@product-idea
 ```
 
-Restart Claude Code, then check that the skills show up in the skill list.
+Keep the plugin `name` the same in both files. A mismatch is the most common
+cause of failed installs.
 
-## Step 9 — Write the README and commit
+## Step 9 — Test it, and keep the output as your public example
 
-README: one paragraph on what it does, the install command from Step 8, and
-the test prompt from Step 7.
+Run it on 2–3 products from different industries:
+
+```
+/product-idea-workbook:new-product-idea a meal-planning app for shift-working nurses
+```
+
+- Check the output against Step 7's gates. Wherever it was vague, tighten that skill's procedure.
+- Save the best runs to `examples/` (e.g. `examples/meal-planning-for-nurses.md`). These are made-up demo products generated by your skills, not your own project, and they're the first thing visitors will open.
+
+## Step 10 — Write a README that gets installs and stars
+
+Most popular skill repos use this order:
+
+1. **One-line hook + badges** (stars, license, version, "Claude Code plugin").
+2. **Why this exists**: one short paragraph. Generic AI product ideas skip the hard parts (evidence, sizing, competition), and this repo enforces them.
+3. **Install in 30 seconds**, one block per agent:
+   ```bash
+   # Claude Code
+   /plugin marketplace add <you>/product-idea-workbook
+   /plugin install product-idea-workbook@product-idea
+
+   # Codex, Cursor, Copilot, Gemini CLI, and 40+ other agents
+   npx skills add <you>/product-idea-workbook
+   ```
+   For claude.ai users: attach one zip per skill to a GitHub Release, which they can upload under Settings → Skills.
+4. **Try it now**: 3 copy-paste prompts, each for a different situation ("I have an idea", "I have a competitor to beat", "I need to size a market").
+5. **See an example**: link to `examples/`, plus a short GIF of a run.
+6. **The pipeline**: the diagram from the top of this file, and one line per skill.
+7. **Contributing + license.**
+
+## Step 11 — Publish and get discovered
 
 ```bash
 git add . && git commit -m "Add product idea workbook skills"
+gh repo create product-idea-workbook --public --source . --push
+gh repo edit --add-topic claude-code,claude-skills,agent-skills,product-management,product-discovery
+gh release create v0.1.0 --generate-notes
 ```
 
-## Step 10 — Keep improving it
+Then:
+- Submit the repo to directories: Anthropic's plugin directory, skills.sh, and the "awesome-claude-skills" style lists (by PR).
+- Post one example output, not just a link, where PMs gather (LinkedIn, r/ProductManagement, X). The example is what convinces people to try it.
+- Ship small updates often with a short changelog. Repos that stay active keep getting stars.
 
-After each real product run, save the finished workbook to `reference/` as
-another example, and add any new mistake you caught as a gate. The
-skills get better as the set of examples grows.
+## Step 12 — Keep improving it
+
+After each real run, add any new mistake you caught as a gate, and add your
+strongest demo runs to `examples/`. Open GitHub issues for skill requests
+so users have an easy way to contribute.
+
+---
+
+### Research sources
+- [anthropics/skills](https://github.com/anthropics/skills): the reference layout and the `/plugin marketplace add` install method
+- [Claude Code: create a marketplace](https://code.claude.com/docs/en/plugin-marketplaces): `marketplace.json` and `plugin.json` rules, plus `claude plugin validate`
+- [obra/superpowers](https://github.com/obra/superpowers): a single-repo plugin using `"source": "./"`
+- [vercel-labs/skills](https://github.com/vercel-labs/skills): `npx skills add`, which finds `skills/<name>/SKILL.md` and plugin manifests
+- [deanpeters/Product-Manager-Skills](https://github.com/deanpeters/Product-Manager-Skills): a popular PM skill repo with situation-based prompts, themed packs, Release zips, and a playground
