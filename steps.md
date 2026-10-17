@@ -89,6 +89,7 @@ product-idea-workbook/
 │   ├── customer-value-space/     # same
 │   ├── product-idea-brief/       # same
 │   ├── market-research/          # SKILL.md: sourced numbers, URL for each one
+│   ├── idea-screen/              # SKILL.md: cheap 1–5 idea comparison before a full run
 │   └── stage-review/             # SKILL.md: skeptical review before each decision
 ├── examples/shiftplate.md        # the worked example, the single source for every example.md
 ├── evals/                        # claude plugin eval cases (--tag trigger | full)
@@ -270,6 +271,7 @@ Run it on 2–3 products from different industries:
 
 - Check the output against Step 7's gates. Wherever it was vague, tighten that skill's procedure.
 - Use a product other than ShiftPlate, which is already the worked example. The skills read it, so it can't serve as a fair test.
+- Keep a full autopilot run to about 60 turns (the full eval enforces it). Unbudgeted test runs on 2026-10-16 took 68–84 turns and 5–7M input tokens before finishing even half the stages, mostly from unbatched searches and from reading a PDF into context.
 - Run the checker on each output. Every miss it doesn't catch is a candidate for a new check in `check_workbook.py`, plus a test.
 - The worked example is `examples/shiftplate.md`. Every number in it was checked against its source on 2026-10-16. Recheck prices before each release, since they change; Mealime's shutdown on 21 Oct 2026 will date that example.
 

@@ -14,6 +14,15 @@ The facts or numbers needed (e.g., "number of US independent music
 teachers"), the geography, and today's date. If they aren't given, list the
 facts the current workbook section needs before you search.
 
+## Budget
+
+Each turn re-sends the whole conversation, so the number of tool calls is what costs tokens. Research only what changes the decision.
+
+- At most **8 questions** per workbook stage. These are the numbers the stage's decision depends on: actor counts, the loss per actor, and competitor prices. Mark every other number ASSUMPTION with a range.
+- Run all the searches in **one turn**, as parallel calls. Then open all the pages in one more turn. Open one page per number, and stop once you've found it.
+- If a page fails to load, is a PDF, or is saved to a file instead of shown, don't open the file. Try one other source, then mark the number ASSUMPTION.
+- Never search again for a number that's already cited in the workbook or in an idea screen. Reuse that citation.
+
 ## Procedure
 
 1. Write the list of questions first. Each one asks for a single number or fact.
@@ -36,6 +45,7 @@ Then give:
 
 ## Quality gate
 
+- [ ] No more than 8 questions, searched in one turn
 - [ ] Every answer has a URL you actually opened, or is labeled ASSUMPTION
 - [ ] Every number appears on its cited page
 - [ ] Geography and age mismatches are noted
