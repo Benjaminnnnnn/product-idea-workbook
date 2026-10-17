@@ -24,7 +24,9 @@ not keep filling in forms.
 **Status:** Steps 1–8 are done, plus the quality and release setup:
 `market-research` and `stage-review` skills, a worked example
 (`examples/shiftplate.md`), the checker, tests, evals, CI, and one-command
-releases. Next up: Step 9.
+releases. Step 10 is also done: the README includes installs, starter prompts,
+the pipeline, and a local checker demo GIF. Step 9's cross-industry test runs
+and Step 11's first release and discovery work remain.
 
 ### Day-to-day commands
 
@@ -272,6 +274,10 @@ Run it on 2–3 products from different industries:
 - The worked example is `examples/shiftplate.md`. Every number in it was checked against its source on 2026-10-16. Recheck prices before each release, since they change; Mealime's shutdown on 21 Oct 2026 will date that example.
 
 ## Step 10 — Write a README that gets installs and stars
+
+**Done:** See [README.md](README.md). Its GIF shows a local checker run on
+the worked example; it is labeled accordingly, rather than presented as a
+live AI generation.
 
 Most popular skill repos use this order:
 
