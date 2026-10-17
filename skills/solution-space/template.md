@@ -40,7 +40,7 @@
 ### 4. Context View
 ```mermaid
 flowchart LR
-  customer([Customer]) -->|"[data]"| product[["[Product]"]]
+  customer(["Customer"]) -->|"[data]"| product[["[Product]"]]
   product -->|"[data]"| ext1[("[External system]")]
   ext1 -->|"[data]"| product
 ```

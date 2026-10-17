@@ -16,7 +16,7 @@ question the user field by field.
 
 ## Procedure
 
-Fill in `template.md` (in this skill's folder) in order:
+Fill in `template.md` (in this skill's folder) in order. `example.md` shows a finished section for a fictional product: match its depth and evidence, but don't copy its content.
 
 | # | Field | Good looks like |
 |---|---|---|
@@ -33,7 +33,7 @@ Fill in `template.md` (in this skill's folder) in order:
 
 ## Evidence rules
 
-- Search the web for data if you have a search tool. Cite inline as (Source, Year) and add the full entry to the workbook's `Appendix — References`.
+- Get every number through the `market-research` skill. If it isn't available, follow its rules yourself: open each source and find the number on it, cite it inline as (Publisher, Year), add the full entry to the workbook's `Appendix — References`, and label anything you can't check as **ASSUMPTION**.
 - Never invent a source, a statistic, or a quote. If a number has no source someone can check, label it **ASSUMPTION** and say how to verify it.
 - Prefer data from the last 3 years, and flag anything older.
 
@@ -49,7 +49,7 @@ Fix any failure before you finish. If a fix needs information you don't have, sa
 
 ## Decision
 
-Fill in the template's **Stage decision**:
+First run the `stage-review` skill on the section and apply its fixes. Then fill in the template's **Stage decision**:
 - **PROCEED**: the problem is real and has been sized.
 - **PIVOT**: the problem is real, but it's too small or belongs to a different customer. Name the better customer or job.
 - **STOP**: there's no evidence anyone has this problem.
