@@ -11,7 +11,7 @@ This shows the depth and evidence standard to match. Don't copy its content or n
 3,465,400 RN jobs (2025) × 59% employed in hospitals (BLS, 2026) = 2,044,586 hospital RNs × 80% on 12-hour or rotating shifts (ASSUMPTION: verify with an ANA or AACN staffing survey) = 1,635,669.
 
 ### 2. Total Addressable Market (TAM)
-**$43.2M per year:** 899,618 focus-segment nurses × $47.99 per year (see 4.3).
+**\$43.2M per year:** 899,618 focus-segment nurses × \$47.99 per year (see 4.3).
 
 ### 3. Market Segmentation
 | Segmentation variable | Segmentation values |
@@ -36,13 +36,13 @@ This shows the depth and evidence standard to match. Don't copy its content or n
 
 | Product | Company | Unique positioning |
 |---|---|---|
-| Mealime | Mealime Meal Plans Inc. | A free, simple recipe planner (Pro $2.99/month, now free), **shutting down on 21 Oct 2026** (Mealime, 2026) |
-| Eat This Much | Eat This Much Inc. | Automatic meal plans built to calorie and macro targets, budget, and schedule; $8.99/month or $59.99/year (Eat This Much, 2026) |
+| Mealime | Mealime Meal Plans Inc. | A free, simple recipe planner (Pro \$2.99/month, now free), **shutting down on 21 Oct 2026** (Mealime, 2026) |
+| Eat This Much | Eat This Much Inc. | Automatic meal plans built to calorie and macro targets, budget, and schedule; \$8.99/month or \$59.99/year (Eat This Much, 2026) |
 
 **Indirect: meal kits**
 
 *Why customers treat them as a substitute:* a meal kit removes planning and shopping, which are the steps nurses skip when they're tired.
-- HelloFresh | HelloFresh SE: about $10–$13 per serving plus weekly shipping (ASSUMPTION: check current prices on hellofresh.com)
+- HelloFresh | HelloFresh SE: about \$10–\$13 per serving plus weekly shipping (ASSUMPTION: check current prices on hellofresh.com)
 
 **Do nothing / workaround:** vending machines and the cafeteria on shift, takeout or delivery after shift, or skipping the meal entirely.
 

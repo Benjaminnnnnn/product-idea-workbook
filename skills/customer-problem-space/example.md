@@ -18,13 +18,13 @@ Eat a proper meal during and after a 12-hour shift.
 | Actual outcome | Desired outcome | Measurement method |
 |---|---|---|
 | Shift days with a skipped or snack-replaced main meal: 3 of 4 (ASSUMPTION, based on 78.2% of night-shift nurses having irregular meal timing (Samhat et al., 2020)) | 1 of 4 | Shift days logged with a skipped or snack-replaced main meal ÷ shift days logged, per user per week |
-| Takeout and vending spend on shift days: $15 per shift day (ASSUMPTION) | $5 per shift day | Shift-day food spend logged in the app ÷ shift days, per user per week |
+| Takeout and vending spend on shift days: \$15 per shift day (ASSUMPTION) | \$5 per shift day | Shift-day food spend logged in the app ÷ shift days, per user per week |
 | Time spent planning and prepping shift meals: 3 h per week (ASSUMPTION) | 1 h per week | Weekly self-reported check-in, averaged across active users |
 
 ### 5. Problem
 **a. Gap**
 
-2 shift days per week with a skipped main meal (3 → 1 of 4), and $10 of avoidable food spend per shift day ($15 → $5). This means there is a 2-day gap in eating properly at work and a $10 gap in daily food spend.
+2 shift days per week with a skipped main meal (3 → 1 of 4), and \$10 of avoidable food spend per shift day (\$15 → \$5). This means there is a 2-day gap in eating properly at work and a \$10 gap in daily food spend.
 
 **b. Causes**
 1. Meal breaks are unpredictable, because patient care interrupts or cancels them.
@@ -52,19 +52,19 @@ Eat a proper meal during and after a 12-hour shift.
 - Shared meal plan with a household *(for: nurses with partners or kids)*
 
 ### 8. Problem Sizing
-- **Per instance:** one shift day of takeout or vending instead of a planned meal = $15 − $5 = $10 of extra spend (ASSUMPTION).
-- **Annualized per actor:** 2–3 such days per week × 48 working weeks × $7–$10 = $672–$1,440 per nurse per year.
-- **Total impact, annually:** 1,635,669 nurses (see 2.1) × $672–$1,440 = **$1.1B–$2.4B per year** in avoidable food spend, before any health costs.
-- **Assumptions:** $15 takeout and $5 home-meal cost per shift day (verify with a 15-nurse food diary). 2–3 affected days per week, based on a Lebanese sample (Samhat et al., 2020); US rates are unverified. 48 working weeks per year.
+- **Per instance:** one shift day of takeout or vending instead of a planned meal = \$15 − \$5 = \$10 of extra spend (ASSUMPTION).
+- **Annualized per actor:** 2–3 such days per week × 48 working weeks × \$7–\$10 = \$672–\$1,440 per nurse per year.
+- **Total impact, annually:** 1,635,669 nurses (see 2.1) × \$672–\$1,440 = **\$1.1B–\$2.4B per year** in avoidable food spend, before any health costs.
+- **Assumptions:** \$15 takeout and \$5 home-meal cost per shift day (verify with a 15-nurse food diary). 2–3 affected days per week, based on a Lebanese sample (Samhat et al., 2020); US rates are unverified. 48 working weeks per year.
 
 ### 9. Problem Category
 Shift-work nutrition gap
 
 ### 10. Problem Statement
-Nurses are expected to eat proper meals to stay alert through 12-hour shifts. In reality, 78.2% of nurses in a night-shift study had irregular meal timing, and 56% reported gaining weight since starting work (Samhat et al., 2020). We estimate that 1,635,669 US hospital nurses on 12-hour or rotating shifts each lose $672–$1,440 a year to takeout and vending on shift days, or **$1.1B–$2.4B per year** in total. Therefore, a solution is needed to help shift-working nurses eat a proper meal during and after a 12-hour shift.
+Nurses are expected to eat proper meals to stay alert through 12-hour shifts. In reality, 78.2% of nurses in a night-shift study had irregular meal timing, and 56% reported gaining weight since starting work (Samhat et al., 2020). We estimate that 1,635,669 US hospital nurses on 12-hour or rotating shifts each lose \$672–\$1,440 a year to takeout and vending on shift days, or **\$1.1B–\$2.4B per year** in total. Therefore, a solution is needed to help shift-working nurses eat a proper meal during and after a 12-hour shift.
 
 ### Stage decision
-**PROCEED**: the problem is documented in published research and is worth $1.1B or more a year, even at the low end of the estimate.
+**PROCEED**: the problem is documented in published research and is worth \$1.1B or more a year, even at the low end of the estimate.
 
 **Riskiest assumption:** how many shift days US nurses actually skip a main meal. Test it with a 2-week food diary from 15 nurses at 2 hospitals.
 

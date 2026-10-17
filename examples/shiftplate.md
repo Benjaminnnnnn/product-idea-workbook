@@ -9,20 +9,20 @@
 | **Product** | ShiftPlate: plans, shops, and batch-preps meals around a nurse's shift rota |
 | **Customer & job** | US hospital nurses on 12-hour or rotating shifts need to eat a proper meal during and after a 12-hour shift |
 | **Problem** | Shift nurses skip or replace main meals on most shift days and pay for takeout and vending instead |
-| **Problem size** | $1.1B–$2.4B per year in avoidable shift-day food spend |
-| **Market** | ~1.64M US hospital RNs on 12-hour or rotating shifts; TAM $43.2M |
+| **Problem size** | \$1.1B–\$2.4B per year in avoidable shift-day food spend |
+| **Market** | ~1.64M US hospital RNs on 12-hour or rotating shifts; TAM \$43.2M |
 | **Focus segment** | Night 12-hour and rotating-shift nurses (~900K): worst meal disruption, schedule fit matters most |
 | **Competition** | Direct: Mealime (shutting down), Eat This Much. Indirect: meal kits. Do nothing: vending, cafeteria, takeout |
 | **Position to own** | A meal planner for shift-working nurses that times and preps meals around their rota, for less than takeout |
 | **Solution** | Rota-aware meal timing, shift boxes, batch-prep plan, takeout-savings tracker; MVP: FR-1 to FR-5 |
 | **Value proposition** | For night and rotating-shift nurses who need to eat properly at work, ShiftPlate is a meal planning app that has the next shift's meal ready in their bag |
-| **Pricing** | Freemium; Plus at $5.99/month or $47.99/year |
-| **Success metrics** | Shift days with a skipped main meal: 3 → 1 of 4; shift-day food spend: $15 → $5; planning and prep time: 3 h → 1 h per week |
+| **Pricing** | Freemium; Plus at \$5.99/month or \$47.99/year |
+| **Success metrics** | Shift days with a skipped main meal: 3 → 1 of 4; shift-day food spend: \$15 → \$5; planning and prep time: 3 h → 1 h per week |
 
 **Top risks & assumptions to validate**
-1. US nurses skip or replace a main meal on about 3 of 4 shift days: test it with a 2-week food diary from 15 nurses at 2 hospitals ($0, 3 weeks).
-2. Night and rotating nurses are about 55% of the 12-hour workforce: test it with a 100-response survey in nursing communities ($0, 1 week).
-3. Nurses will pay $47.99/year: test it with a fake-door pricing page shown to 200 nurses ($200 in ads, 2 weeks).
+1. US nurses skip or replace a main meal on about 3 of 4 shift days: test it with a 2-week food diary from 15 nurses at 2 hospitals (\$0, 3 weeks).
+2. Night and rotating nurses are about 55% of the 12-hour workforce: test it with a 100-response survey in nursing communities (\$0, 1 week).
+3. Nurses will pay \$47.99/year: test it with a fake-door pricing page shown to 200 nurses (\$200 in ads, 2 weeks).
 
 **Decision:** GO: every stage passed its gate, and the riskiest assumptions are cheap to test before building.
 
@@ -43,13 +43,13 @@ Eat a proper meal during and after a 12-hour shift.
 | Actual outcome | Desired outcome | Measurement method |
 |---|---|---|
 | Shift days with a skipped or snack-replaced main meal: 3 of 4 (ASSUMPTION, based on 78.2% of night-shift nurses having irregular meal timing (Samhat et al., 2020)) | 1 of 4 | Shift days logged with a skipped or snack-replaced main meal ÷ shift days logged, per user per week |
-| Takeout and vending spend on shift days: $15 per shift day (ASSUMPTION) | $5 per shift day | Shift-day food spend logged in the app ÷ shift days, per user per week |
+| Takeout and vending spend on shift days: \$15 per shift day (ASSUMPTION) | \$5 per shift day | Shift-day food spend logged in the app ÷ shift days, per user per week |
 | Time spent planning and prepping shift meals: 3 h per week (ASSUMPTION) | 1 h per week | Weekly self-reported check-in, averaged across active users |
 
 ### 5. Problem
 **a. Gap**
 
-2 shift days per week with a skipped main meal (3 → 1 of 4), and $10 of avoidable food spend per shift day ($15 → $5). This means there is a 2-day gap in eating properly at work and a $10 gap in daily food spend.
+2 shift days per week with a skipped main meal (3 → 1 of 4), and \$10 of avoidable food spend per shift day (\$15 → \$5). This means there is a 2-day gap in eating properly at work and a \$10 gap in daily food spend.
 
 **b. Causes**
 1. Meal breaks are unpredictable, because patient care interrupts or cancels them.
@@ -77,19 +77,19 @@ Eat a proper meal during and after a 12-hour shift.
 - Shared meal plan with a household *(for: nurses with partners or kids)*
 
 ### 8. Problem Sizing
-- **Per instance:** one shift day of takeout or vending instead of a planned meal = $15 − $5 = $10 of extra spend (ASSUMPTION).
-- **Annualized per actor:** 2–3 such days per week × 48 working weeks × $7–$10 = $672–$1,440 per nurse per year.
-- **Total impact, annually:** 1,635,669 nurses (see 2.1) × $672–$1,440 = **$1.1B–$2.4B per year** in avoidable food spend, before any health costs.
-- **Assumptions:** $15 takeout and $5 home-meal cost per shift day (verify with a 15-nurse food diary). 2–3 affected days per week, based on a Lebanese sample (Samhat et al., 2020); US rates are unverified. 48 working weeks per year.
+- **Per instance:** one shift day of takeout or vending instead of a planned meal = \$15 − \$5 = \$10 of extra spend (ASSUMPTION).
+- **Annualized per actor:** 2–3 such days per week × 48 working weeks × \$7–\$10 = \$672–\$1,440 per nurse per year.
+- **Total impact, annually:** 1,635,669 nurses (see 2.1) × \$672–\$1,440 = **\$1.1B–\$2.4B per year** in avoidable food spend, before any health costs.
+- **Assumptions:** \$15 takeout and \$5 home-meal cost per shift day (verify with a 15-nurse food diary). 2–3 affected days per week, based on a Lebanese sample (Samhat et al., 2020); US rates are unverified. 48 working weeks per year.
 
 ### 9. Problem Category
 Shift-work nutrition gap
 
 ### 10. Problem Statement
-Nurses are expected to eat proper meals to stay alert through 12-hour shifts. In reality, 78.2% of nurses in a night-shift study had irregular meal timing, and 56% reported gaining weight since starting work (Samhat et al., 2020). We estimate that 1,635,669 US hospital nurses on 12-hour or rotating shifts each lose $672–$1,440 a year to takeout and vending on shift days, or **$1.1B–$2.4B per year** in total. Therefore, a solution is needed to help shift-working nurses eat a proper meal during and after a 12-hour shift.
+Nurses are expected to eat proper meals to stay alert through 12-hour shifts. In reality, 78.2% of nurses in a night-shift study had irregular meal timing, and 56% reported gaining weight since starting work (Samhat et al., 2020). We estimate that 1,635,669 US hospital nurses on 12-hour or rotating shifts each lose \$672–\$1,440 a year to takeout and vending on shift days, or **\$1.1B–\$2.4B per year** in total. Therefore, a solution is needed to help shift-working nurses eat a proper meal during and after a 12-hour shift.
 
 ### Stage decision
-**PROCEED**: the problem is documented in published research and is worth $1.1B or more a year, even at the low end of the estimate.
+**PROCEED**: the problem is documented in published research and is worth \$1.1B or more a year, even at the low end of the estimate.
 
 **Riskiest assumption:** how many shift days US nurses actually skip a main meal. Test it with a 2-week food diary from 15 nurses at 2 hospitals.
 
@@ -101,7 +101,7 @@ Nurses are expected to eat proper meals to stay alert through 12-hour shifts. In
 3,465,400 RN jobs (2025) × 59% employed in hospitals (BLS, 2026) = 2,044,586 hospital RNs × 80% on 12-hour or rotating shifts (ASSUMPTION: verify with an ANA or AACN staffing survey) = 1,635,669.
 
 ### 2. Total Addressable Market (TAM)
-**$43.2M per year:** 899,618 focus-segment nurses × $47.99 per year (see 4.3).
+**\$43.2M per year:** 899,618 focus-segment nurses × \$47.99 per year (see 4.3).
 
 ### 3. Market Segmentation
 | Segmentation variable | Segmentation values |
@@ -126,13 +126,13 @@ Nurses are expected to eat proper meals to stay alert through 12-hour shifts. In
 
 | Product | Company | Unique positioning |
 |---|---|---|
-| Mealime | Mealime Meal Plans Inc. | A free, simple recipe planner (Pro $2.99/month, now free), **shutting down on 21 Oct 2026** (Mealime, 2026) |
-| Eat This Much | Eat This Much Inc. | Automatic meal plans built to calorie and macro targets, budget, and schedule; $8.99/month or $59.99/year (Eat This Much, 2026) |
+| Mealime | Mealime Meal Plans Inc. | A free, simple recipe planner (Pro \$2.99/month, now free), **shutting down on 21 Oct 2026** (Mealime, 2026) |
+| Eat This Much | Eat This Much Inc. | Automatic meal plans built to calorie and macro targets, budget, and schedule; \$8.99/month or \$59.99/year (Eat This Much, 2026) |
 
 **Indirect: meal kits**
 
 *Why customers treat them as a substitute:* a meal kit removes planning and shopping, which are the steps nurses skip when they're tired.
-- HelloFresh | HelloFresh SE: about $10–$13 per serving plus weekly shipping (ASSUMPTION: check current prices on hellofresh.com)
+- HelloFresh | HelloFresh SE: about \$10–\$13 per serving plus weekly shipping (ASSUMPTION: check current prices on hellofresh.com)
 
 **Do nothing / workaround:** vending machines and the cafeteria on shift, takeout or delivery after shift, or skipping the meal entirely.
 
@@ -275,7 +275,7 @@ flowchart LR
 | Feature | Benefit (customer's words) | Outcome improved (actual → expected) |
 |---|---|---|
 | Rota-aware meal timing | "I know what I'm eating on every shift." | Skipped-meal shift days: 3 → 1 of 4 |
-| Shift boxes | "Dinner's already in my bag." | Shift-day food spend: $15 → $5 |
+| Shift boxes | "Dinner's already in my bag." | Shift-day food spend: \$15 → \$5 |
 | Batch-prep plan | "One prep session covers my whole stretch." | Planning and prep time: 3 h → 1 h per week |
 | Takeout-savings tracker | "I can see what I saved." | Makes all three outcomes visible |
 
@@ -289,22 +289,22 @@ flowchart LR
 
 | Plan | Price | Includes |
 |---|---|---|
-| Free | $0 | One week plan; no shift boxes |
-| Plus | $5.99/month or $47.99/year | Rota import, shift boxes, batch-prep plans, savings tracker |
+| Free | \$0 | One week plan; no shift boxes |
+| Plus | \$5.99/month or \$47.99/year | Rota import, shift boxes, batch-prep plans, savings tracker |
 
 | Alternative | Price (source, date) |
 |---|---|
-| Mealime Pro | $2.99/month, now free until shutdown on 21 Oct 2026 (Mealime, 2026) |
-| Eat This Much | $8.99/month or $59.99/year (Eat This Much, 2026) |
-| Meal kits | About $10–$13 per serving plus shipping (ASSUMPTION) |
-| Takeout and vending | About $15 per shift day (ASSUMPTION, 1.8) |
+| Mealime Pro | \$2.99/month, now free until shutdown on 21 Oct 2026 (Mealime, 2026) |
+| Eat This Much | \$8.99/month or \$59.99/year (Eat This Much, 2026) |
+| Meal kits | About \$10–\$13 per serving plus shipping (ASSUMPTION) |
+| Takeout and vending | About \$15 per shift day (ASSUMPTION, 1.8) |
 
-**Why this price:** $47.99/year is about 7% of the low-end value created ($672 per year, 1.8), so the nurse keeps more than 90% of it. It's priced between Mealime and Eat This Much.
+**Why this price:** \$47.99/year is about 7% of the low-end value created (\$672 per year, 1.8), so the nurse keeps more than 90% of it. It's priced between Mealime and Eat This Much.
 
 ### 4. Customer Cost Items
 | Cost item | Type | Estimate | How we reduce it |
 |---|---|---|---|
-| Subscription | Money | $47.99 per year | Free tier to try first |
+| Subscription | Money | \$47.99 per year | Free tier to try first |
 | Prep session | Time | 1 h per week | One batch plan per stretch |
 | Setup | Learning | 5 minutes | Rota import and plan in under 5 minutes |
 | Moving from Mealime | Switching | Re-saving favorite recipes | Free import from a URL |
@@ -313,19 +313,19 @@ flowchart LR
 ### 5. Customer Value Proposition Evaluation
 | Option | Value per actor/year | Total cost per actor/year | Net value |
 |---|---|---|---|
-| ShiftPlate | $672–$1,440 in avoided spend, plus ~100 h saved | $47.99 | $624–$1,392 |
-| Eat This Much | ~30% of that value, because plans aren't shift-timed (ASSUMPTION): $202–$432 | $59.99 | $142–$372 |
-| Meal kits | $672–$1,440 in avoided takeout | ~$1,392 above groceries (ASSUMPTION: $11/serving vs. $5, 144 servings, ~$11/week shipping) | −$720 to +$48 |
-| Do nothing | $0 | $0 | $0 (baseline) |
+| ShiftPlate | \$672–\$1,440 in avoided spend, plus ~100 h saved | \$47.99 | \$624–\$1,392 |
+| Eat This Much | ~30% of that value, because plans aren't shift-timed (ASSUMPTION): \$202–\$432 | \$59.99 | \$142–\$372 |
+| Meal kits | \$672–\$1,440 in avoided takeout | ~\$1,392 above groceries (ASSUMPTION: \$11/serving vs. \$5, 144 servings, ~\$11/week shipping) | −\$720 to +\$48 |
+| Do nothing | \$0 | \$0 | \$0 (baseline) |
 
-**Verdict:** ShiftPlate leaves the nurse $624–$1,392 ahead each year, about 4× the best alternative, and it saves about 100 hours.
+**Verdict:** ShiftPlate leaves the nurse \$624–\$1,392 ahead each year, about 4× the best alternative, and it saves about 100 hours.
 
-**TAM (copied into 2.2):** 899,618 × $47.99 = **$43.2M**
+**TAM (copied into 2.2):** 899,618 × \$47.99 = **\$43.2M**
 
 ### Stage decision
 **PROCEED**: the nurse comes out clearly ahead at a price that supports a small team.
 
-**Riskiest assumption:** willingness to pay $47.99/year. Test it with a fake-door pricing page shown to 200 nurses.
+**Riskiest assumption:** willingness to pay \$47.99/year. Test it with a fake-door pricing page shown to 200 nurses.
 
 ## Appendix — References
 

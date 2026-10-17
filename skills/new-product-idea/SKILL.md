@@ -58,4 +58,4 @@ In a Claude Code plugin the skills are named `product-idea-workbook:<skill>`. If
 
 - Each stage reads the earlier sections from the workbook file. Never let two sections disagree.
 - Never invent a source. A number with no source you can check is an ASSUMPTION.
-- Keep the template's blank lines: put one before every table, and between label lines such as `**PROCEED**: …` and `**Riskiest assumption:** …`. Without them, tables render as plain text and lines run together.
+- Keep the template's blank lines: put one before every table, and between label lines such as `**PROCEED**: …` and `**Riskiest assumption:** …`. Without them, tables render as plain text and lines run together. Write money as `\$47.99`, never `$47.99`, because many viewers render text between two `$` signs as math.

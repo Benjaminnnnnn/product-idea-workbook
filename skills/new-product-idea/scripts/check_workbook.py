@@ -54,6 +54,9 @@ NEEDS_EVIDENCE = {
 PLACEHOLDER = re.compile(r"\[(?![ xX]?\]|\^|\d+(?:\s*,\s*\d+)*\])[^\]\n]+\](?!\()")
 # Inside code fences (Mermaid, wireframes), only template leftovers are flagged.
 FENCE_PLACEHOLDER = re.compile(r"\"\[[^\]\"\n]*\]\"|\bAXIS[12]\b|\bCompetitor [AB]\b")
+# Many viewers (GitHub, VS Code, Obsidian) render "$...$" as LaTeX math, so currency must be "\$".
+UNESCAPED_DOLLAR = re.compile(r"(?<!\\)\$")
+INLINE_CODE = re.compile(r"`[^`]*`")
 # Lines that may follow a "**Label**" line directly: lists, tables, headings, code fences.
 LINE_STARTS_BLOCK = re.compile(r"\s*(?:[-*+]\s|\d+\.\s|\||#|```)")
 STAGE_DECISION = re.compile(r"\*\*(PROCEED|PIVOT|STOP)\*\*")
@@ -135,14 +138,18 @@ def check(path, complete=False):
         for m in pattern.finditer(line):
             problem(i, f"unfilled placeholder {m.group(0)}")
 
-    # Markdown that renders wrong: a table, or a new line, glued to the line above it.
+    # Markdown that renders wrong: "$" read as math, or a table or line glued to the line above it.
     in_fence = False
     for i, line in enumerate(lines):
         if line.lstrip().startswith("```"):
             in_fence = not in_fence
             continue
+        if in_fence:
+            continue
+        if UNESCAPED_DOLLAR.search(INLINE_CODE.sub("", line)):
+            problem(i, r"write dollar signs as \$, or text between two $ renders as math")
         prev = lines[i - 1].strip() if i else ""
-        if in_fence or not line.strip() or not prev or prev.startswith(("```", "#")):
+        if not line.strip() or not prev or prev.startswith(("```", "#")):
             continue
         if line.lstrip().startswith("|") and not prev.startswith("|"):
             problem(i, "add a blank line before this table, or it renders as plain text")
