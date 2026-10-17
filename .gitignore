@@ -1,2 +1,5 @@
 *.docx
 workbooks/
+dist/
+evals/results/
+__pycache__/

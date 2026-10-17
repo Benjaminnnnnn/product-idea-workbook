@@ -14,7 +14,7 @@ and it's often the only part a stakeholder reads.
 
 ## Procedure
 
-1. Fill in `template.md` (in this skill's folder) using **only** what's in the workbook. Don't add new numbers or claims.
+1. Fill in `template.md` (in this skill's folder) using **only** what's in the workbook. Don't add new numbers or claims. `example.md` shows a finished brief for a fictional product.
 2. If a stage isn't done, write "Not yet done: run `<skill>`" in its rows. Never fill a gap with a guess.
 3. Choose the top 3 risks from the riskiest assumptions, the ASSUMPTION labels, and the stage decisions. For each, give the cheapest test that would confirm or kill it.
 4. Make the decision:

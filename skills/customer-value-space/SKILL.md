@@ -17,7 +17,7 @@ earlier stages first.
 
 ## Procedure
 
-Fill in `template.md` (in this skill's folder) in order:
+Fill in `template.md` (in this skill's folder) in order. `example.md` shows a finished section for a fictional product: match its depth and evidence, but don't copy its content.
 
 | # | Field | Good looks like |
 |---|---|---|
@@ -31,7 +31,7 @@ Then go back and fill in **TAM** in section 2.2: focus-segment actors × annual 
 
 ## Evidence rules
 
-The same as `customer-problem-space`: cite competitor prices with a source and date, never invent one, and label anything you can't check as **ASSUMPTION**.
+Get every number through the `market-research` skill. If it isn't available, follow its rules yourself: open each source and find the number on it, cite it inline as (Publisher, Year), add the full entry to the workbook's `Appendix — References`, and label anything you can't check as **ASSUMPTION**. Record competitor prices with the date you checked them.
 
 ## Quality gate
 
@@ -44,7 +44,7 @@ The same as `customer-problem-space`: cite competitor prices with a source and d
 
 ## Decision
 
-Fill in the template's **Stage decision**:
+First run the `stage-review` skill on the section and apply its fixes. Then fill in the template's **Stage decision**:
 - **PROCEED**: the customer clearly comes out ahead at a price that sustains the business.
 - **PIVOT**: the value is real, but the price or cost structure doesn't work. Name the change (model, segment, scope).
 - **STOP**: the customer doesn't come out ahead of what they do today.

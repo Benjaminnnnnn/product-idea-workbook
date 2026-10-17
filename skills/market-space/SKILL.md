@@ -17,7 +17,7 @@ or suggest running `customer-problem-space` first.
 
 ## Procedure
 
-Fill in `template.md` (in this skill's folder) in order:
+Fill in `template.md` (in this skill's folder) in order. `example.md` shows a finished section for a fictional product: match its depth and evidence, but don't copy its content.
 
 | # | Field | Good looks like |
 |---|---|---|
@@ -33,7 +33,7 @@ Draw the maps as Mermaid `quadrantChart` blocks so they render on GitHub. Point 
 
 ## Evidence rules
 
-The same as `customer-problem-space`: cite as (Source, Year), add the full entry to `Appendix — References`, never invent a source, and label anything you can't check as **ASSUMPTION**.
+Get every number through the `market-research` skill. If it isn't available, follow its rules yourself: open each source and find the number on it, cite it inline as (Publisher, Year), add the full entry to the workbook's `Appendix — References`, and label anything you can't check as **ASSUMPTION**. Never invent a source.
 
 ## Quality gate
 
@@ -46,7 +46,7 @@ The same as `customer-problem-space`: cite as (Source, Year), add the full entry
 
 ## Decision
 
-Fill in the template's **Stage decision**:
+First run the `stage-review` skill on the section and apply its fixes. Then fill in the template's **Stage decision**:
 - **PROCEED**: there's a gap worth owning and a focus segment you can reach.
 - **PIVOT**: there's no real gap on these axes, or the focus segment is too small. Name the alternative position or segment.
 - **STOP**: the market is already well served on every axis customers care about.

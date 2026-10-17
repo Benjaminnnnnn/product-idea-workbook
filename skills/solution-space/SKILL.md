@@ -17,7 +17,7 @@ whether to continue anyway.
 
 ## Procedure
 
-Fill in `template.md` (in this skill's folder) in order:
+Fill in `template.md` (in this skill's folder) in order. `example.md` shows a finished section for a fictional product: match its depth and evidence, but don't copy its content.
 
 | # | Field | Good looks like |
 |---|---|---|
@@ -38,7 +38,7 @@ Fill in `template.md` (in this skill's folder) in order:
 
 ## Decision
 
-Fill in the template's **Stage decision**:
+First run the `stage-review` skill on the section and apply its fixes. Then fill in the template's **Stage decision**:
 - **PROCEED**: the MVP is buildable and delivers the position.
 - **PIVOT**: the scope is too big for a first release. Name what to cut.
 - **STOP**: it can't be built or legally offered within realistic limits.
