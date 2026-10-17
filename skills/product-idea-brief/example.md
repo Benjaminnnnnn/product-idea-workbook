@@ -26,6 +26,7 @@ This shows the depth and evidence standard to match. Don't copy its content or n
 3. Nurses will pay $47.99/year: test it with a fake-door pricing page shown to 200 nurses ($200 in ads, 2 weeks).
 
 **Decision:** GO: every stage passed its gate, and the riskiest assumptions are cheap to test before building.
+
 **Next step:** Run the 2-week food diary with 15 nurses.
 
 ## Appendix — References

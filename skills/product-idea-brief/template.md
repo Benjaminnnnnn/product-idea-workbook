@@ -21,4 +21,5 @@
 3. [...]
 
 **Decision:** [GO | PIVOT | NO-GO]: [why]
+
 **Next step:** [the single next action]

@@ -17,6 +17,7 @@
 
 ### 5. Problem
 **a. Gap**
+
 [Desired − actual, in the outcome's unit, with its source. "This means there is a [gap] in [outcome]."]
 
 **b. Causes**
@@ -47,4 +48,5 @@
 
 ### Stage decision
 **[PROCEED | PIVOT | STOP]**: [one sentence on why]
+
 **Riskiest assumption:** [what to test with real customers, and how]

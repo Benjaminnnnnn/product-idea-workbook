@@ -84,6 +84,14 @@ class CheckerTest(unittest.TestCase):
         text = self.example[:start] + "### 8. Problem Sizing\n- About $1B a year.\n\n" + self.example[end:]
         self.assert_problem(text, "no citation and no ASSUMPTION")
 
+    def test_table_glued_to_text(self):
+        self.assert_problem(self.example.replace("**Direct**\n\n|", "**Direct**\n|"),
+                            "blank line before this table")
+
+    def test_label_lines_glued_together(self):
+        self.assert_problem(self.example.replace("before building.\n\n**Next step:**", "before building.\n**Next step:**"),
+                            "joins the line above")
+
     def test_missing_subsection(self):
         self.assert_problem(self.example.replace("### 4. Context View", "### Context"),
                             'missing "### 4. Context View"')

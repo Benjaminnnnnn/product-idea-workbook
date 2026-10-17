@@ -54,6 +54,8 @@ NEEDS_EVIDENCE = {
 PLACEHOLDER = re.compile(r"\[(?![ xX]?\]|\^|\d+(?:\s*,\s*\d+)*\])[^\]\n]+\](?!\()")
 # Inside code fences (Mermaid, wireframes), only template leftovers are flagged.
 FENCE_PLACEHOLDER = re.compile(r"\"\[[^\]\"\n]*\]\"|\bAXIS[12]\b|\bCompetitor [AB]\b")
+# Lines that may follow a "**Label**" line directly: lists, tables, headings, code fences.
+LINE_STARTS_BLOCK = re.compile(r"\s*(?:[-*+]\s|\d+\.\s|\||#|```)")
 STAGE_DECISION = re.compile(r"\*\*(PROCEED|PIVOT|STOP)\*\*")
 BRIEF_DECISION = re.compile(r"\*\*Decision:\*\*\s*(GO|PIVOT|NO-GO)\b")
 # "(Publisher, 2025)" or "(A, 2020; B et al., 2021)".
@@ -132,6 +134,20 @@ def check(path, complete=False):
         pattern = FENCE_PLACEHOLDER if in_fence else PLACEHOLDER
         for m in pattern.finditer(line):
             problem(i, f"unfilled placeholder {m.group(0)}")
+
+    # Markdown that renders wrong: a table, or a new line, glued to the line above it.
+    in_fence = False
+    for i, line in enumerate(lines):
+        if line.lstrip().startswith("```"):
+            in_fence = not in_fence
+            continue
+        prev = lines[i - 1].strip() if i else ""
+        if in_fence or not line.strip() or not prev or prev.startswith(("```", "#")):
+            continue
+        if line.lstrip().startswith("|") and not prev.startswith("|"):
+            problem(i, "add a blank line before this table, or it renders as plain text")
+        elif prev.startswith("*") and not prev.startswith("* ") and not LINE_STARTS_BLOCK.match(line):
+            problem(i, "add a blank line before this line, or it joins the line above it")
 
     # Stage decisions.
     decisions = {}

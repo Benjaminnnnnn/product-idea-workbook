@@ -25,6 +25,7 @@
 3. Nurses will pay $47.99/year: test it with a fake-door pricing page shown to 200 nurses ($200 in ads, 2 weeks).
 
 **Decision:** GO: every stage passed its gate, and the riskiest assumptions are cheap to test before building.
+
 **Next step:** Run the 2-week food diary with 15 nurses.
 
 ## 1. Customer Problem Space
@@ -47,6 +48,7 @@ Eat a proper meal during and after a 12-hour shift.
 
 ### 5. Problem
 **a. Gap**
+
 2 shift days per week with a skipped main meal (3 → 1 of 4), and $10 of avoidable food spend per shift day ($15 → $5). This means there is a 2-day gap in eating properly at work and a $10 gap in daily food spend.
 
 **b. Causes**
@@ -88,6 +90,7 @@ Nurses are expected to eat proper meals to stay alert through 12-hour shifts. In
 
 ### Stage decision
 **PROCEED**: the problem is documented in published research and is worth $1.1B or more a year, even at the low end of the estimate.
+
 **Riskiest assumption:** how many shift days US nurses actually skip a main meal. Test it with a 2-week food diary from 15 nurses at 2 hospitals.
 
 ## 2. Market Space
@@ -120,12 +123,14 @@ Nurses are expected to eat proper meals to stay alert through 12-hour shifts. In
 
 ### 5. Competition
 **Direct**
+
 | Product | Company | Unique positioning |
 |---|---|---|
 | Mealime | Mealime Meal Plans Inc. | A free, simple recipe planner (Pro $2.99/month, now free), **shutting down on 21 Oct 2026** (Mealime, 2026) |
 | Eat This Much | Eat This Much Inc. | Automatic meal plans built to calorie and macro targets, budget, and schedule; $8.99/month or $59.99/year (Eat This Much, 2026) |
 
 **Indirect: meal kits**
+
 *Why customers treat them as a substitute:* a meal kit removes planning and shopping, which are the steps nurses skip when they're tired.
 - HelloFresh | HelloFresh SE: about $10–$13 per serving plus weekly shipping (ASSUMPTION: check current prices on hellofresh.com)
 
@@ -163,6 +168,7 @@ quadrantChart
 3. Mealime's shutdown leaves users of a low-cost planner without one.
 
 **c. Position-to-Own**
+
 A meal planner for shift-working nurses that times and preps meals around their rota, for less than takeout.
 
 ### 7. Market Focus Decision
@@ -172,6 +178,7 @@ A meal planner for shift-working nurses that times and preps meals around their 
 
 ### Stage decision
 **PROCEED**: there's a clear gap (high schedule fit at low cost), and the focus segment is large and reachable.
+
 **Riskiest assumption:** the 45 / 25 / 30 shift-pattern split.
 
 ## 3. Solution Space
@@ -259,6 +266,7 @@ flowchart LR
 
 ### Stage decision
 **PROCEED**: the MVP is buildable by a small team and delivers the position to own.
+
 **MVP cut:** FR-1 to FR-5 are in; FR-6 to FR-9 come after launch.
 
 ## 4. Customer Value Space
@@ -316,6 +324,7 @@ flowchart LR
 
 ### Stage decision
 **PROCEED**: the nurse comes out clearly ahead at a price that supports a small team.
+
 **Riskiest assumption:** willingness to pay $47.99/year. Test it with a fake-door pricing page shown to 200 nurses.
 
 ## Appendix — References
