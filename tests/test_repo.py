@@ -169,6 +169,35 @@ class SkillsTest(unittest.TestCase):
                                  "out of date; run: python3 scripts/build.py")
 
 
+release = load("release", ROOT / "scripts" / "release.py")
+
+
+class ReleaseVersionTest(unittest.TestCase):
+    def test_strict_semver(self):
+        self.assertEqual(release.parse("1.20.3"), (1, 20, 3))
+        self.assertEqual(release.parse("0.0.0"), (0, 0, 0))
+        for bad in ("01.2.3", "1.02.3", "1.2.03", "1.2", "1.2.3-beta.1", "v1.2.3"):
+            with self.subTest(version=bad):
+                self.assertIsNone(release.parse(bad))
+
+    def test_bump_of(self):
+        self.assertEqual(release.bump_of((0, 1, 0), (0, 1, 1)), "patch")
+        self.assertEqual(release.bump_of((0, 1, 5), (0, 2, 0)), "minor")
+        self.assertEqual(release.bump_of((0, 9, 0), (1, 0, 0)), "major")
+
+    def test_required_bump(self):
+        fix = ["fix(checker): handle empty files"]
+        feat = fix + ["feat(market-space): add a pricing table"]
+        bang = fix + ["feat(checker)!: require an appendix"]
+        footer = fix + ["refactor: rename templates\n\nBREAKING CHANGE: template paths changed"]
+        self.assertEqual(release.required_bump(fix, (1, 0, 0)), "patch")
+        self.assertEqual(release.required_bump(feat, (1, 0, 0)), "minor")
+        self.assertEqual(release.required_bump(bang, (1, 0, 0)), "major")
+        self.assertEqual(release.required_bump(footer, (1, 0, 0)), "major")
+        # Before 1.0.0, breaking changes need only a minor bump.
+        self.assertEqual(release.required_bump(bang, (0, 3, 0)), "minor")
+
+
 class ManifestTest(unittest.TestCase):
     def test_plugin_and_marketplace_agree(self):
         plugin = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text())

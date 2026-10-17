@@ -4,6 +4,9 @@
     python3 scripts/release.py 0.2.0
 
 1. Checks that the working tree is clean and CHANGELOG.md has notes under "## [Unreleased]".
+   The version must be strict SemVer (MAJOR.MINOR.PATCH, no leading zeros) and at
+   least the bump the Conventional Commits since the last tag require:
+   breaking -> major (minor while < 1.0.0), feat -> minor, anything else -> patch.
 2. Sets the version in .claude-plugin/plugin.json and dates the CHANGELOG section.
 3. Runs the tests and the generated-file check, and stops if either fails.
 4. Commits "chore(release): v0.2.0" (Conventional Commits, see AGENTS.md) and creates tag v0.2.0.
@@ -20,6 +23,33 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PLUGIN = ROOT / ".claude-plugin" / "plugin.json"
 CHANGELOG = ROOT / "CHANGELOG.md"
+SEMVER = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)")
+BUMPS = ["patch", "minor", "major"]
+
+
+def parse(version):
+    m = SEMVER.fullmatch(version)
+    return tuple(int(x) for x in m.groups()) if m else None
+
+
+def bump_of(current, new):
+    """The kind of bump from current to new: "major", "minor", or "patch"."""
+    if new[0] > current[0]:
+        return "major"
+    if new[1] > current[1]:
+        return "minor"
+    return "patch"
+
+
+def required_bump(messages, current):
+    """The smallest bump the Conventional Commit messages since the last release allow."""
+    breaking = any(re.match(r"\w+(\([^)]*\))?!:", m) or re.search(r"^BREAKING[ -]CHANGE:", m, re.M)
+                   for m in messages)
+    if breaking:
+        return "major" if current[0] >= 1 else "minor"  # SemVer: anything may change before 1.0.0
+    if any(re.match(r"feat(\([^)]*\))?:", m) for m in messages):
+        return "minor"
+    return "patch"
 
 
 def run(*cmd):
@@ -31,10 +61,12 @@ def fail(message):
 
 
 def main(argv):
-    if len(argv) != 1 or not re.fullmatch(r"\d+\.\d+\.\d+", argv[0]):
+    if len(argv) != 1:
         sys.exit(__doc__.strip())
     version = argv[0]
     tag = f"v{version}"
+    if not parse(version):
+        fail(f"{version} is not a SemVer version (MAJOR.MINOR.PATCH, no leading zeros)")
 
     if run("git", "status", "--porcelain").strip():
         fail("working tree has uncommitted changes")
@@ -43,9 +75,17 @@ def main(argv):
 
     plugin = PLUGIN.read_text(encoding="utf-8")
     current = re.search(r'"version"\s*:\s*"([^"]+)"', plugin).group(1)
-    as_tuple = lambda v: tuple(int(x) for x in v.split("."))
-    if as_tuple(version) <= as_tuple(current):
+    if parse(version) <= parse(current):
         fail(f"{version} is not newer than the current version {current}")
+
+    last_tag = run("git", "tag", "--list", "v*", "--sort=-v:refname").split()
+    since = f"{last_tag[0]}..HEAD" if last_tag else "HEAD"
+    messages = [m.strip() for m in run("git", "log", "--format=%B%x1e", since).split("\x1e") if m.strip()]
+    needed = required_bump(messages, parse(current))
+    got = bump_of(parse(current), parse(version))
+    if BUMPS.index(got) < BUMPS.index(needed):
+        fail(f"commits since {last_tag[0] if last_tag else 'the first commit'} need at least a {needed} "
+             f"bump, but {current} -> {version} is a {got} bump")
 
     changelog = CHANGELOG.read_text(encoding="utf-8")
     m = re.search(r"^## \[Unreleased\]\s*\n(.*?)(?=^## |\Z)", changelog, re.M | re.S)
