@@ -29,6 +29,7 @@ jobs:
         run: |
           npm install -g @anthropic-ai/claude-code
           claude plugin validate . --strict
+          claude plugin validate .claude-plugin/plugin.json --strict
       - name: Build claude.ai skill zips
         run: python3 scripts/build.py
       - name: Publish GitHub Release
