@@ -7,7 +7,7 @@ section.
 ## [Unreleased]
 
 ### Changed
-- Recommend installing the GitHub marketplace directly in claude.ai on paid plans, with manual skill uploads as a fallback.
+- Recommend installing the GitHub marketplace directly in claude.ai or Claude Desktop on paid plans, with manual skill uploads as a fallback.
 
 ### Removed
 - The internal `steps.md` planning document and the README checker GIF.

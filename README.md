@@ -10,13 +10,13 @@ Test a product idea before you build it. Agent skills for researching the proble
 
 ## Quick start
 
-On **claude.ai** (Pro, Max, Team, or Enterprise), install all nine skills together:
+On **claude.ai or Claude Desktop** (Pro, Max, Team, or Enterprise), install all nine skills together:
 
-1. Open **Customize → Plugins → Add → Add marketplace**.
+1. In Desktop, open **Chat** or **Cowork** first. Open **Customize → Plugins → Add → Add marketplace**.
 2. Choose **Add from a repository** and paste `https://github.com/Benjaminnnnnn/product-idea-workbook`.
 3. Find **product-idea-workbook** in **Discover** and click **Add**.
 
-[Claude's plugin guide](https://support.claude.com/en/articles/13837440-use-plugins-in-claude). Team and Enterprise admins may restrict marketplaces.
+The install follows your Claude account across web and Desktop. [Claude's plugin guide](https://support.claude.com/en/articles/13837440-use-plugins-in-claude). Team and Enterprise admins may restrict marketplaces.
 
 In a **Claude Code** session:
 
