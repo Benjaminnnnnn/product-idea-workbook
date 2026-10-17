@@ -24,6 +24,10 @@ section.
 - `market-research` (cited numbers) and `stage-review` (skeptical review before each decision).
 - A worked example for a fictional product (`examples/shiftplate.md`), shown in each skill's `example.md`.
 - `check_workbook.py`, a standard-library checker that catches missing sections, leftover placeholders, missing decisions, and citations without references.
-- A Claude Code plugin marketplace, `npx skills` support, and per-skill zips for claude.ai.
+- A Claude Code plugin marketplace, `npx skills` support, and one ZIP containing all skills.
 - `idea-screen`: a cheap pass that scores 1–5 ideas on problem, market, gap, and willingness to pay, so the full workbook runs only on the winner.
 - A research and turn budget: at most 8 researched numbers per stage, searches batched in one turn, and no reading PDFs or saved fetch files. The full-run eval now fails above 60 turns.
+
+### Changed
+- Releases build and attach one reproducible `product-idea-workbook-<version>.zip` containing every skill folder and the license, replacing individual skill ZIPs. Extract the bundle before installing skills.
+- The release script builds the bundle before committing and prints an atomic push command for the current branch and release tag. GitHub publishing verifies the tag exists and serializes releases for the same tag.

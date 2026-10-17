@@ -8,7 +8,9 @@ import re
 import sys
 import tempfile
 import unittest
+import zipfile
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
@@ -199,6 +201,30 @@ class ReleaseVersionTest(unittest.TestCase):
         self.assertEqual(release.required_bump(footer, (1, 0, 0)), "major")
         # Before 1.0.0, breaking changes need only a minor bump.
         self.assertEqual(release.required_bump(bang, (0, 3, 0)), "minor")
+
+
+class BundleTest(unittest.TestCase):
+    def test_bundle_contains_all_skill_files_and_is_reproducible(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(build, "DIST", Path(tmp)):
+            (Path(tmp) / "old-skill.zip").write_bytes(b"old archive")
+            archive = build.build_zip()
+            self.assertEqual(archive.name, f"product-idea-workbook-{build.plugin_version()}.zip")
+            self.assertEqual(list(Path(tmp).glob("*.zip")), [archive])
+            expected = {p.relative_to(SKILLS).as_posix(): p.read_bytes()
+                        for skill in SKILLS.iterdir() if (skill / "SKILL.md").is_file()
+                        for p in skill.rglob("*") if p.is_file()
+                        and "__pycache__" not in p.parts
+                        and p.suffix not in (".pyc", ".pyo") and p.name != ".DS_Store"}
+            expected["LICENSE"] = (ROOT / "LICENSE").read_bytes()
+            with zipfile.ZipFile(archive) as z:
+                self.assertEqual(set(z.namelist()), set(expected))
+                self.assertIsNone(z.testzip())
+                for name, content in expected.items():
+                    self.assertEqual(z.read(name), content)
+                info = z.getinfo("new-product-idea/scripts/check_workbook.py")
+                self.assertEqual(info.external_attr >> 16, 0o755)
+            original = archive.read_bytes()
+            self.assertEqual(build.build_zip().read_bytes(), original)
 
 
 class ManifestTest(unittest.TestCase):

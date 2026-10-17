@@ -25,9 +25,9 @@ Install once for your Claude account to use it on web and Desktop. Team and Ente
 <details>
 <summary>Free plan or manual skill upload</summary>
 
-1. Download all nine skill ZIPs from the [latest release](https://github.com/Benjaminnnnnn/product-idea-workbook/releases/latest).
+1. Download and extract the single all-skills ZIP from the [latest release](https://github.com/Benjaminnnnnn/product-idea-workbook/releases/latest).
 2. Enable **Code execution and file creation** in **Settings → Capabilities**.
-3. Upload each ZIP under **Customize → Skills → + → Create skill → Upload a skill**, then enable all nine skills.
+3. Claude.ai accepts one skill per upload: zip the skill folder you want to use, upload it under **Customize → Skills → + → Create skill → Upload a skill**, then enable it.
 
 [Skill setup guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
 
