@@ -1,12 +1,16 @@
 name: Release
 
-# Runs when scripts/release.py's tag is pushed (git push origin main --follow-tags).
+# Runs when scripts/release.py's tag is pushed using its printed command.
 on:
   push:
     tags: ["v*.*.*"]
 
 permissions:
   contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   release:
@@ -30,11 +34,12 @@ jobs:
           npm install -g @anthropic-ai/claude-code
           claude plugin validate . --strict
           claude plugin validate .claude-plugin/plugin.json --strict
-      - name: Build claude.ai skill zips
+      - name: Build all-skills ZIP
         run: python3 scripts/build.py
       - name: Publish GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           python3 scripts/build.py notes "${GITHUB_REF_NAME#v}" > notes.md
-          gh release create "$GITHUB_REF_NAME" dist/*.zip --title "$GITHUB_REF_NAME" --notes-file notes.md
+          gh release create "$GITHUB_REF_NAME" "dist/product-idea-workbook-${GITHUB_REF_NAME#v}.zip" \
+            --verify-tag --title "$GITHUB_REF_NAME" --notes-file notes.md

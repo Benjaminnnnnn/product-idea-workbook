@@ -8,17 +8,22 @@
    least the bump the Conventional Commits since the last tag require:
    breaking -> major (minor while < 1.0.0), feat -> minor, anything else -> patch.
 2. Sets the version in .claude-plugin/plugin.json and dates the CHANGELOG section.
-3. Runs the tests and the generated-file check, and stops if either fails.
+3. Runs the tests and generated-file check, then builds one all-skills ZIP in dist/.
+   Stops without changing the version if a check or the build fails.
 4. Commits "chore(release): v0.2.0" (Conventional Commits, see AGENTS.md) and creates tag v0.2.0.
 
-Then push with: git push origin main --follow-tags
-The tag starts .github/workflows/release.yml, which publishes the GitHub Release.
+Then run the printed command to push the current branch and this tag atomically.
+The tag starts .github/workflows/release.yml, which publishes the GitHub Release
+with changelog notes and product-idea-workbook-<version>.zip.
 """
 import datetime
 import re
+import shlex
 import subprocess
 import sys
 from pathlib import Path
+
+from build import build_zip
 
 ROOT = Path(__file__).resolve().parent.parent
 PLUGIN = ROOT / ".claude-plugin" / "plugin.json"
@@ -70,6 +75,9 @@ def main(argv):
 
     if run("git", "status", "--porcelain").strip():
         fail("working tree has uncommitted changes")
+    branch = run("git", "branch", "--show-current").strip()
+    if not branch:
+        fail("check out a branch before releasing (HEAD is detached)")
     if run("git", "tag", "--list", tag).strip():
         fail(f"tag {tag} already exists")
 
@@ -88,7 +96,7 @@ def main(argv):
              f"bump, but {current} -> {version} is a {got} bump")
 
     changelog = CHANGELOG.read_text(encoding="utf-8")
-    m = re.search(r"^## \[Unreleased\]\s*\n(.*?)(?=^## |\Z)", changelog, re.M | re.S)
+    m = re.search(r"^## \[Unreleased\][ \t]*\n(.*?)(?=^## |\Z)", changelog, re.M | re.S)
     if not m or not m.group(1).strip():
         fail('add your changes under "## [Unreleased]" in CHANGELOG.md first')
 
@@ -101,14 +109,17 @@ def main(argv):
     try:
         run(sys.executable, "-m", "unittest", "discover", "-s", "tests")
         run(sys.executable, "scripts/build.py", "--check")
-    except subprocess.CalledProcessError as e:
+        archive = build_zip()
+    except (subprocess.CalledProcessError, OSError) as e:
         run("git", "checkout", "--", str(PLUGIN), str(CHANGELOG))
-        fail(f"checks failed, version not changed:\n{e.stdout}{e.stderr}")
+        details = f"{e.stdout}{e.stderr}" if isinstance(e, subprocess.CalledProcessError) else str(e)
+        fail(f"checks or build failed, version not changed:\n{details}")
 
     run("git", "add", str(PLUGIN), str(CHANGELOG))
     run("git", "commit", "-m", f"chore(release): {tag}")
     run("git", "tag", "-a", tag, "-m", f"Release {tag}")
-    print(f"Released {tag} locally. Publish it with:\n  git push origin main --follow-tags")
+    push = shlex.join(["git", "push", "--atomic", "origin", f"refs/heads/{branch}", f"refs/tags/{tag}"])
+    print(f"Released {tag} locally. Built {archive.relative_to(ROOT)}. Publish it with:\n  {push}")
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build generated files and release assets. Standard library only.
 
-    python3 scripts/build.py                  regenerate skills/*/example.md and build dist/*.zip
+    python3 scripts/build.py                  regenerate examples and build one all-skills ZIP in dist/
     python3 scripts/build.py --check          fail if any generated example.md is out of date (CI)
     python3 scripts/build.py notes 0.2.0      print the CHANGELOG section for a version
     python3 scripts/build.py verify-tag v0.2.0  fail unless the tag matches plugin.json's version
@@ -56,19 +56,24 @@ def generated_examples():
     return out
 
 
-def build_zips():
-    """One zip per skill (the skill folder at the zip root), for claude.ai uploads. Byte-for-byte reproducible."""
+def build_zip():
+    """One versioned ZIP with every skill folder at the root. Byte-for-byte reproducible."""
     DIST.mkdir(exist_ok=True)
     for old in DIST.glob("*.zip"):
         old.unlink()
-    for skill in sorted(p for p in SKILLS.iterdir() if (p / "SKILL.md").exists()):
-        with zipfile.ZipFile(DIST / f"{skill.name}.zip", "w", zipfile.ZIP_DEFLATED) as z:
-            for f in sorted(skill.rglob("*")):
-                if f.is_file() and "__pycache__" not in f.parts:
-                    info = zipfile.ZipInfo(str(f.relative_to(SKILLS)), date_time=(2020, 1, 1, 0, 0, 0))
-                    info.external_attr = (0o755 if f.suffix == ".py" else 0o644) << 16
-                    z.writestr(info, f.read_bytes(), zipfile.ZIP_DEFLATED)
-    return sorted(DIST.glob("*.zip"))
+    archive = DIST / f"product-idea-workbook-{plugin_version()}.zip"
+    files = [ROOT / "LICENSE"]
+    for skill in sorted(p for p in SKILLS.iterdir() if (p / "SKILL.md").is_file()):
+        files.extend(f for f in sorted(skill.rglob("*"))
+                     if f.is_file() and "__pycache__" not in f.parts
+                     and f.suffix not in (".pyc", ".pyo") and f.name != ".DS_Store")
+    with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as z:
+        for f in files:
+            name = f.name if f == ROOT / "LICENSE" else f.relative_to(SKILLS).as_posix()
+            info = zipfile.ZipInfo(name, date_time=(2020, 1, 1, 0, 0, 0))
+            info.external_attr = (0o755 if f.suffix == ".py" else 0o644) << 16
+            z.writestr(info, f.read_bytes(), zipfile.ZIP_DEFLATED)
+    return archive
 
 
 def plugin_version():
@@ -109,8 +114,7 @@ def main(argv):
     for path, body in generated_examples().items():
         path.write_text(body, encoding="utf-8")
         print(f"wrote {path.relative_to(ROOT)}")
-    for z in build_zips():
-        print(f"built {z.relative_to(ROOT)}")
+    print(f"built {build_zip().relative_to(ROOT)}")
     return 0
 
 
