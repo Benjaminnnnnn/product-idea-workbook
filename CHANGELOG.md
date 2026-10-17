@@ -6,6 +6,8 @@ section.
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-16
+
 ### Changed
 - Recommend installing the GitHub marketplace directly in claude.ai or Claude Desktop on paid plans, with manual skill uploads as a fallback.
 
