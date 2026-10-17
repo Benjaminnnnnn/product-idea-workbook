@@ -1,0 +1,12 @@
+{
+  "name": "product-idea",
+  "description": "Product management skills for turning ideas into competitive products",
+  "owner": { "name": "Benjamin Zhuang" },
+  "plugins": [
+    {
+      "name": "product-idea-workbook",
+      "source": "./",
+      "description": "Turn a product idea into a validated, competitive product concept: problem, market, solution, value."
+    }
+  ]
+}
