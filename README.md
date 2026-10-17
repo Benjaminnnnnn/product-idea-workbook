@@ -10,50 +10,67 @@ Test a product idea before you build it. Agent skills for researching the proble
 
 ## Quick start
 
-On **claude.ai or Claude Desktop** (Pro, Max, Team, or Enterprise), install all nine skills together:
+Choose your agent and install all nine skills.
 
-1. In Desktop, open **Chat** or **Cowork** first. Open **Customize → Plugins → Add → Add marketplace**.
+### Claude.ai and Claude Desktop
+
+Requires Pro, Max, Team, or Enterprise. In Desktop, open **Chat** or **Cowork** first.
+
+1. Open **Customize → Plugins → Add → Add marketplace**.
 2. Choose **Add from a repository** and paste `https://github.com/Benjaminnnnnn/product-idea-workbook`.
 3. Find **product-idea-workbook** in **Discover** and click **Add**.
 
-The install follows your Claude account across web and Desktop. [Claude's plugin guide](https://support.claude.com/en/articles/13837440-use-plugins-in-claude). Team and Enterprise admins may restrict marketplaces.
+Install once for your Claude account to use it on web and Desktop. Team and Enterprise admins may restrict marketplaces. [Plugin guide](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
 
-In a **Claude Code** session:
+<details>
+<summary>Free plan or manual skill upload</summary>
+
+1. Download all nine skill ZIPs from the [latest release](https://github.com/Benjaminnnnnn/product-idea-workbook/releases/latest).
+2. Enable **Code execution and file creation** in **Settings → Capabilities**.
+3. Upload each ZIP under **Customize → Skills → + → Create skill → Upload a skill**, then enable all nine skills.
+
+[Skill setup guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+
+</details>
+
+### Claude Code
+
+Run these commands inside a Claude Code session:
 
 ```text
 /plugin marketplace add Benjaminnnnnn/product-idea-workbook
 /plugin install product-idea-workbook@product-idea
 ```
 
-For **Codex, Cursor, Copilot, Gemini CLI**, or another supported agent, run this in your terminal (requires Node.js and npm). Select your agent and all skills:
+### Other agents
+
+For Codex, Cursor, Copilot, Gemini CLI, or another [supported agent](https://github.com/vercel-labs/skills), run this in your terminal (requires Node.js and npm):
 
 ```bash
 npx skills add Benjaminnnnnn/product-idea-workbook
 ```
 
-Then paste this into your agent:
+Select your agent and all nine skills when prompted.
+
+## Choose a mode
+
+Paste either example into your agent, replacing the idea with yours.
+
+**Coach (default)** asks for missing details and pauses after each stage for your input.
 
 ```text
-Use new-product-idea to evaluate a meal-planning app for US nurses working
-12-hour shifts. Coach me through it, starting with whether the problem is real.
+Use new-product-idea in coach mode to evaluate a meal-planning app
+for nurses in the US.
 ```
 
-Coach mode pauses after each stage. Say “run on autopilot” to continue without questions. In Claude Code, you can also start with `/product-idea-workbook:new-product-idea`.
+**Autopilot** runs without questions, labels assumptions, and still reviews and checks each stage.
 
-<details>
-<summary>Manual skill upload (including Free plans)</summary>
-
-Download skill ZIPs from [Releases](https://github.com/Benjaminnnnnn/product-idea-workbook/releases). Until the first release, build them locally with Python 3:
-
-```bash
-git clone https://github.com/Benjaminnnnnn/product-idea-workbook.git
-cd product-idea-workbook
-python3 scripts/build.py
+```text
+Use new-product-idea in autopilot mode to evaluate a meal-planning app
+for nurses in the US.
 ```
 
-Enable code execution, then upload each ZIP from `dist/` under **Customize → Skills → + → Create skill → Upload a skill**. Enable all skills for the full workflow. [Claude's setup guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
-
-</details>
+To switch from coach to autopilot, say “continue on autopilot.” In Claude Code, you can also invoke `/product-idea-workbook:new-product-idea` with your idea and mode.
 
 ## How it works
 

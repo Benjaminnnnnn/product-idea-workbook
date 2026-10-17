@@ -6,6 +6,9 @@ section.
 
 ## [Unreleased]
 
+### Changed
+- Separate README installation instructions by agent, link to released skill ZIPs, and add coach and autopilot examples.
+
 ## [0.1.0] - 2026-10-16
 
 ### Changed
