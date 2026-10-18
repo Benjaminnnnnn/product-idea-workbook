@@ -6,6 +6,9 @@ section.
 
 ## [Unreleased]
 
+### Added
+- CubbyLedger, a second worked example in `examples/cubbyledger.md`, generated on autopilot and ending in a PIVOT decision.
+
 ### Changed
 - Default to autopilot when no mode is specified; request coach mode to pause for input after each stage.
 - Separate README installation instructions by agent, link to released skill ZIPs, and add coach and autopilot examples.
